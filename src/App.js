@@ -23,9 +23,10 @@ class App extends Component {
 
   runCode = () => {
     const { html, css, js } = this.state;
-    const iframe = this.refs.iframe;
-    const document = iframe.contentDocument;
-    const documentContents = `
+    if (html !== "" || css !== "" || js !== "") {
+      const iframe = this.refs.iframe;
+      const document = iframe.contentDocument;
+      const documentContents = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -48,9 +49,10 @@ class App extends Component {
     </html>
     `;
 
-    document.open();
-    document.write(documentContents);
-    document.close();
+      document.open();
+      document.write(documentContents);
+      document.close();
+    }
   };
 
   render() {
@@ -92,7 +94,7 @@ class App extends Component {
             />
           </div>
           <div className="code-editor js-code">
-            <div className="editor-header">JavaScript</div>
+            <div className="editor-header">JAVASCRIPT</div>
             <Codemirror
               value={js}
               options={{
@@ -105,9 +107,13 @@ class App extends Component {
             />
           </div>
         </section>
-        <section className="result">
-          <iframe title="result" className="iframe" ref="iframe" />
-        </section>
+        {html === "" && css === "" && js === ""
+          ? <div className="show-no-content">
+              <h1>You are the CSS to my HTML</h1>
+            </div>
+          : <section className="result">
+              <iframe title="result" className="iframe" ref="iframe" />
+            </section>}
       </div>
     );
   }

@@ -43,7 +43,8 @@ html {
   overflow: auto;
 }
 
-.result {
+.result,
+.show-no-content {
   position: fixed;
   top: 0;
   left: 0;
@@ -63,4 +64,11 @@ html {
 
 .CodeMirror-gutter {
   background-color: #2a2a34c9;
+}
+
+.show-no-content {
+  background-color: #e7e7e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
