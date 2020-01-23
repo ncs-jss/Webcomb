@@ -92,7 +92,7 @@ class App extends Component {
             />
           </div>
           <div className="code-editor js-code">
-            <div className="editor-header">javaScript</div>
+            <div className="editor-header">JavaScript</div>
             <Codemirror
               value={js}
               options={{
