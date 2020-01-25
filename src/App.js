@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Controlled as Codemirror } from "react-codemirror2";
+import DefaultWindow from "./components/DefaultWindow";
+import DisplayWindow from "./components/DisplayWindow";
 
 import "./App.css";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
-
 import "codemirror/mode/htmlmixed/htmlmixed";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
-
-// this variable will have the contents of the iframe
-let documentContents = "";
 
 const App = () => {
   const codeMirrorOptions = {
@@ -20,8 +18,6 @@ const App = () => {
     scrollbarStyle: null,
     lineWrapping: true
   };
-
-  const iframeRef = useRef(null);
 
   const [html, sethtml] = useState("");
   const [css, setcss] = useState("");
@@ -33,68 +29,8 @@ const App = () => {
       sethtml(langObj.html);
       setcss(langObj.css);
       setjs(langObj.js);
-      runCode();
     }
   }, []);
-
-  useEffect(
-    () => {
-      runCode();
-    },
-    [html, css, js]
-  );
-
-  const runCode = () => {
-    if (html !== "") {
-      const iframe = iframeRef.current;
-      const document = iframe.contentDocument;
-      documentContents = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport content="width=device-width, initial-scale=1.0">
-      <meta http-equip="X-UA-Compatible content="ie=edge">
-      <title>Document</title>
-      <style>
-        ${css}
-      </style>
-    </head>
-    <body>
-      ${html}
-      <script type="text/javascript">
-        ${js}
-      </script>
-    </body>
-    </head>
-    </html>
-    `;
-
-      document.open();
-      document.write(documentContents);
-      document.close();
-    }
-  };
-
-  // logic to download file
-  const downloadFile = () => {
-    const link = document.createElement("a");
-    const mimeType = "text/html" || "text/plain";
-    link.setAttribute("download", "index.html");
-    link.setAttribute(
-      "href",
-      "data:" +
-        mimeType +
-        ";charset=utf-8," +
-        encodeURIComponent(documentContents)
-    );
-    link.click();
-  };
-
-  const saveToLocalStorage = () => {
-    const langObj = { html, css, js };
-    localStorage.setItem("langObj", JSON.stringify(langObj));
-  };
 
   return (
     <div className="App">
@@ -139,31 +75,46 @@ const App = () => {
           />
         </div>
       </section>
+
       {html === ""
-        ? <div className="show-no-content">
-            <h1>You are the CSS to my HTML</h1>
-          </div>
-        : <div>
-            <section className="result">
-              <iframe title="result" className="iframe" ref={iframeRef} />
-            </section>
-            {html !== ""
-              ? <div>
-                  <button className="save-button" onClick={saveToLocalStorage}>
-                    Save
-                  </button>
-                  <button
-                    className="download-button"
-                    onClick={downloadFile}
-                    title="download file"
-                  >
-                    Download File
-                  </button>
-                </div>
-              : null}
-          </div>}
+        ? <DefaultWindow />
+        : <DisplayWindow html={html} css={css} js={js} sethtml={sethtml} />}
     </div>
   );
 };
 
 export default App;
+
+// const addRemoveComment = languageType => {
+//   let selectedContent = window.getSelection().toString();
+//   const setLanguage =
+//     languageType === "html" ? html : languageType === "css" ? css : js;
+//   const setFunc =
+//     languageType === "html"
+//       ? sethtml
+//       : languageType === "css" ? setcss : setjs;
+//   const commentType = languageType === "html" ? "<!--  -->" : "/*  */";
+//   // comment add or remove logic
+//   if (selectedContent === "") {
+//     setFunc(setLanguage.concat(commentType));
+//   } else if (
+//     selectedContent.split(" ")[0] === "<!--" ||
+//     selectedContent.split(" ")[0] === "/*"
+//   ) {
+//     let arr = selectedContent.split(" ");
+//     arr.shift();
+//     arr.pop();
+//     let str = arr.join(" ");
+//     setFunc(str);
+//   } else {
+//     languageType === "html"
+//       ? (selectedContent = "<!-- " + selectedContent + " -->")
+//       : (selectedContent = "/* " + selectedContent + " */");
+//     if(setLanguage.split(selectedContent).length === 2) {
+
+//     }
+//     else {
+
+//     }
+//   }
+// }
