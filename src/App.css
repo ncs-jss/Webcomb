@@ -73,9 +73,9 @@ html {
   align-items: center;
 }
 
-.download-button {
+.download-button,
+.save-button {
   position: absolute;
-  bottom: 0;
   right: 600px;
   color: white;
   background-color: #1d1e22;
@@ -87,10 +87,16 @@ html {
   cursor: pointer;
 }
 
-.download-button:hover {
+.download-button {
+  bottom: 0;
+}
+
+.download-button:hover,
+.save-button:hover {
   background: #3d3e3f;
 }
 
-.download-button:focus {
+.download-button:focus,
+.save-button:focus {
   outline: none;
 }

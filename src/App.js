@@ -27,6 +27,16 @@ const App = () => {
   const [css, setcss] = useState("");
   const [js, setjs] = useState("");
 
+  useEffect(() => {
+    const langObj = JSON.parse(localStorage.getItem("langObj"));
+    if (langObj !== null) {
+      sethtml(langObj.html);
+      setcss(langObj.css);
+      setjs(langObj.js);
+      runCode();
+    }
+  }, []);
+
   useEffect(
     () => {
       runCode();
@@ -66,8 +76,8 @@ const App = () => {
     }
   };
 
+  // logic to download file
   const downloadFile = () => {
-    // const content = iframeRef.current.contentDocument;
     const link = document.createElement("a");
     const mimeType = "text/html" || "text/plain";
     link.setAttribute("download", "index.html");
@@ -78,8 +88,12 @@ const App = () => {
         ";charset=utf-8," +
         encodeURIComponent(documentContents)
     );
-    // console.log(content);
     link.click();
+  };
+
+  const saveToLocalStorage = () => {
+    const langObj = { html, css, js };
+    localStorage.setItem("langObj", JSON.stringify(langObj));
   };
 
   return (
@@ -134,13 +148,18 @@ const App = () => {
               <iframe title="result" className="iframe" ref={iframeRef} />
             </section>
             {html !== ""
-              ? <button
-                  className="download-button"
-                  onClick={downloadFile}
-                  title="download file"
-                >
-                  Download File
-                </button>
+              ? <div>
+                  <button className="save-button" onClick={saveToLocalStorage}>
+                    Save
+                  </button>
+                  <button
+                    className="download-button"
+                    onClick={downloadFile}
+                    title="download file"
+                  >
+                    Download File
+                  </button>
+                </div>
               : null}
           </div>}
     </div>
