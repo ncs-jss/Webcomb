@@ -32,6 +32,13 @@ const App = () => {
     }
   }, []);
 
+  const reset = () => {
+    sethtml("");
+    setcss("");
+    setjs("");
+    localStorage.clear();
+  };
+
   return (
     <div className="App">
       <section className="playground">
@@ -78,7 +85,13 @@ const App = () => {
 
       {html === ""
         ? <DefaultWindow />
-        : <DisplayWindow html={html} css={css} js={js} sethtml={sethtml} />}
+        : <DisplayWindow
+            html={html}
+            css={css}
+            js={js}
+            sethtml={sethtml}
+            reset={reset}
+          />}
     </div>
   );
 };

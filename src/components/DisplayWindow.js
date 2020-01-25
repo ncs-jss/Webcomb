@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const DisplayWindow = ({ html, css, js, ...props }) => {
+const DisplayWindow = ({ html, css, js, reset, ...props }) => {
   const iframeRef = useRef(null);
   const [documentContents, setdocumentContents] = useState("");
 
@@ -69,9 +69,12 @@ const DisplayWindow = ({ html, css, js, ...props }) => {
         <iframe title="result" className="iframe" ref={iframeRef} />
       </section>
       {html !== ""
-        ? <div>
+        ? <div className="buttons">
             <button className="save-button" onClick={saveToLocalStorage}>
               Save
+            </button>
+            <button className="reset-button" onClick={reset}>
+              Reset
             </button>
             <button
               className="download-button"

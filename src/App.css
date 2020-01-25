@@ -73,10 +73,15 @@ html {
   align-items: center;
 }
 
-.download-button,
-.save-button {
+.buttons {
   position: absolute;
   right: 600px;
+  bottom: 0;
+}
+
+.download-button,
+.save-button,
+.reset-button {
   color: white;
   background-color: #1d1e22;
   padding: 6px 14px;
@@ -87,16 +92,14 @@ html {
   cursor: pointer;
 }
 
-.download-button {
-  bottom: 0;
-}
-
 .download-button:hover,
-.save-button:hover {
+.save-button:hover,
+.reset-button:hover {
   background: #3d3e3f;
 }
 
 .download-button:focus,
-.save-button:focus {
+.save-button:focus,
+.reset-button:focus {
   outline: none;
 }
