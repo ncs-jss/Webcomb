@@ -10,6 +10,9 @@ import "codemirror/mode/htmlmixed/htmlmixed";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
 
+// this variable will have the contents of the iframe
+let documentContents = "";
+
 const App = () => {
   const codeMirrorOptions = {
     theme: "material",
@@ -32,10 +35,10 @@ const App = () => {
   );
 
   const runCode = () => {
-    if (html !== "" || css !== "" || js !== "") {
+    if (html !== "") {
       const iframe = iframeRef.current;
       const document = iframe.contentDocument;
-      const documentContents = `
+      documentContents = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -63,10 +66,25 @@ const App = () => {
     }
   };
 
+  const downloadFile = () => {
+    // const content = iframeRef.current.contentDocument;
+    const link = document.createElement("a");
+    const mimeType = "text/html" || "text/plain";
+    link.setAttribute("download", "index.html");
+    link.setAttribute(
+      "href",
+      "data:" +
+        mimeType +
+        ";charset=utf-8," +
+        encodeURIComponent(documentContents)
+    );
+    // console.log(content);
+    link.click();
+  };
+
   return (
     <div className="App">
       <section className="playground">
-        {/* <button className="download-button">Download</button> */}
         <div className="code-editor html-code">
           <div className="editor-header">HTML</div>
           <Codemirror
@@ -107,13 +125,24 @@ const App = () => {
           />
         </div>
       </section>
-      {html === "" && css === "" && js === ""
+      {html === ""
         ? <div className="show-no-content">
             <h1>You are the CSS to my HTML</h1>
           </div>
-        : <section className="result">
-            <iframe title="result" className="iframe" ref={iframeRef} />
-          </section>}
+        : <div>
+            <section className="result">
+              <iframe title="result" className="iframe" ref={iframeRef} />
+            </section>
+            {html !== ""
+              ? <button
+                  className="download-button"
+                  onClick={downloadFile}
+                  title="download file"
+                >
+                  Download File
+                </button>
+              : null}
+          </div>}
     </div>
   );
 };

@@ -72,3 +72,25 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+.download-button {
+  position: absolute;
+  bottom: 0;
+  right: 600px;
+  color: white;
+  background-color: #1d1e22;
+  padding: 6px 14px;
+  font-size: 1rem;
+  border: 1px solid #1d1e22;
+  margin: 5px;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background: #3d3e3f;
+}
+
+.download-button:focus {
+  outline: none;
+}
