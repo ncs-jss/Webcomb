@@ -56,9 +56,16 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 600px;
   overflow: hidden;
+}
+
+.default-window {
+  bottom: 0;
+}
+
+.result {
+  bottom: 44px;
 }
 
 .iframe {
@@ -92,17 +99,25 @@ html {
   align-items: center;
 }
 
-.buttons {
+.buttons-div {
+  height: 44px;
   position: absolute;
+  left: 0;
   right: 600px;
   bottom: 0;
+  background: #292930;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .fullscreen-display {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
+  /* bottom: 0; */
   right: 0;
 }
 
@@ -114,17 +129,18 @@ html {
 
 .btn {
   color: white;
-  background-color: #1d1e22;
-  padding: 6px 14px;
-  font-size: 1rem;
-  border: 1px solid #1d1e22;
+  background-color: #454547;
+  padding: 2px 8px;
   margin: 5px;
+  border: 1px solid #454547;
   transition: background 0.15s;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .btn:hover {
-  background: #182532;
+  background: #1d1e22;
+  border-color: #1d1e22;
 }
 
 .btn:focus {

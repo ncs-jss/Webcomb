@@ -31,17 +31,21 @@ const App = () => {
 
   // logic to save file
   const saveToLocalStorage = () => {
-    const langObj = { html, css, js };
-    localStorage.setItem("langObj", JSON.stringify(langObj));
-    window.alert("Pen Saved ;-)");
+    if (html !== "" || css !== "" || js !== "") {
+      const langObj = { html, css, js };
+      localStorage.setItem("langObj", JSON.stringify(langObj));
+      window.alert("Pen Saved ;-)");
+    }
   };
 
   // logic to reset everyhting
   const reset = () => {
-    sethtml("");
-    setcss("");
-    setjs("");
-    localStorage.clear();
+    if (window.confirm("Reset Pen?")) {
+      sethtml("");
+      setcss("");
+      setjs("");
+      localStorage.clear();
+    }
   };
 
   // logic to get data from local storage
