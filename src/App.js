@@ -16,13 +16,18 @@ const App = () => {
     theme: "material",
     lineNumbers: true,
     scrollbarStyle: null,
-    lineWrapping: true
+    lineWrapping: true,
+    tabSize: 2,
+    extraKeys: {
+      "Ctrl-S": () => saveToLocalStorage()
+    }
   };
 
   const [html, sethtml] = useState("");
   const [css, setcss] = useState("");
   const [js, setjs] = useState("");
 
+  // logic to get data from local storage
   useEffect(() => {
     const langObj = JSON.parse(localStorage.getItem("langObj"));
     if (langObj !== null) {
@@ -32,6 +37,14 @@ const App = () => {
     }
   }, []);
 
+  // logic to save file
+  const saveToLocalStorage = () => {
+    const langObj = { html, css, js };
+    localStorage.setItem("langObj", JSON.stringify(langObj));
+    window.alert("Pen Saved ;-)");
+  };
+
+  // logic to reset everyhting
   const reset = () => {
     sethtml("");
     setcss("");
@@ -89,8 +102,8 @@ const App = () => {
             html={html}
             css={css}
             js={js}
-            sethtml={sethtml}
             reset={reset}
+            saveToLocalStorage={saveToLocalStorage}
           />}
     </div>
   );

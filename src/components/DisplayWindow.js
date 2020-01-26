@@ -1,9 +1,19 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const DisplayWindow = ({ html, css, js, reset, ...props }) => {
+import FunctionalityButtons from "./FunctionalityButtons";
+
+const DisplayWindow = ({
+  html,
+  css,
+  js,
+  reset,
+  saveToLocalStorage,
+  ...props
+}) => {
   const iframeRef = useRef(null);
   const [documentContents, setdocumentContents] = useState("");
 
+  // logic to display the variales as an iframe
   const runCode = () => {
     if (html !== "") {
       const iframe = iframeRef.current;
@@ -57,34 +67,16 @@ const DisplayWindow = ({ html, css, js, reset, ...props }) => {
     link.click();
   };
 
-  // logic to save file
-  const saveToLocalStorage = () => {
-    const langObj = { html, css, js };
-    localStorage.setItem("langObj", JSON.stringify(langObj));
-  };
-
   return (
     <div>
       <section className="result">
         <iframe title="result" className="iframe" ref={iframeRef} />
       </section>
-      {html !== ""
-        ? <div className="buttons">
-            <button className="save-button" onClick={saveToLocalStorage}>
-              Save
-            </button>
-            <button className="reset-button" onClick={reset}>
-              Reset
-            </button>
-            <button
-              className="download-button"
-              onClick={downloadFile}
-              title="download file"
-            >
-              Download File
-            </button>
-          </div>
-        : null}
+      <FunctionalityButtons
+        downloadFile={downloadFile}
+        reset={reset}
+        saveToLocalStorage={saveToLocalStorage}
+      />
     </div>
   );
 };
