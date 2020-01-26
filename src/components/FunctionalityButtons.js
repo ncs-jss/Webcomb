@@ -1,31 +1,24 @@
 import React, { Fragment } from "react";
 
+import BottomButtons from "./BottomButtons";
+
 const FunctionalityButtons = ({
   downloadFile,
   reset,
   saveToLocalStorage,
   view,
-  toggleView,
-  ...props
+  toggleView
 }) => {
   return (
     <div className={`buttons ${view ? "fullscreen-display-buttons" : null}`}>
       {!view
         ? <Fragment>
-            <button className="btn" onClick={saveToLocalStorage}>
-              Save
-            </button>
-            <button className="btn" onClick={reset}>
-              Reset
-            </button>
+            <BottomButtons children="Save" onClick={saveToLocalStorage} />
+            <BottomButtons children="Reset" onClick={reset} />
           </Fragment>
         : null}
-      <button className="btn" onClick={downloadFile}>
-        Download File
-      </button>
-      <button className="btn" onClick={() => toggleView(!view)}>
-        Toggle View
-      </button>
+      <BottomButtons children="Download File" onClick={downloadFile} />
+      <BottomButtons children="Toggle View" onClick={() => toggleView(!view)} />
     </div>
   );
 };
