@@ -4,18 +4,23 @@ const FunctionalityButtons = ({
   downloadFile,
   reset,
   saveToLocalStorage,
+  view,
+  toggleView,
   ...props
 }) => {
   return (
-    <div className="buttons">
-      <button className="save-button" onClick={saveToLocalStorage}>
+    <div className={`buttons ${view ? "fullscreen-display-buttons" : null}`}>
+      <button className="btn" onClick={saveToLocalStorage}>
         Save
       </button>
-      <button className="reset-button" onClick={reset}>
+      <button className="btn" onClick={reset}>
         Reset
       </button>
-      <button className="download-button" onClick={downloadFile}>
+      <button className="btn" onClick={downloadFile}>
         Download File
+      </button>
+      <button className="btn" onClick={() => toggleView(!view)}>
+        Toggle View
       </button>
     </div>
   );

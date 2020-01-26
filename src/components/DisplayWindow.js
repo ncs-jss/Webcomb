@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { Fragment, useRef, useEffect, useState } from "react";
 
 import FunctionalityButtons from "./FunctionalityButtons";
 
@@ -8,9 +8,12 @@ const DisplayWindow = ({
   js,
   reset,
   saveToLocalStorage,
+  view,
+  toggleView,
   ...props
 }) => {
   const iframeRef = useRef(null);
+
   const [documentContents, setdocumentContents] = useState("");
 
   // logic to display the variales as an iframe
@@ -45,13 +48,6 @@ const DisplayWindow = ({
     }
   };
 
-  useEffect(
-    () => {
-      runCode();
-    },
-    [html, css, js, runCode]
-  );
-
   // logic to download file
   const downloadFile = () => {
     const link = document.createElement("a");
@@ -67,17 +63,26 @@ const DisplayWindow = ({
     link.click();
   };
 
+  useEffect(
+    () => {
+      runCode();
+    },
+    [html, css, js, runCode]
+  );
+
   return (
-    <div>
-      <section className="result">
+    <Fragment>
+      <section className={`result ${view ? "fullscreen-display" : null}`}>
         <iframe title="result" className="iframe" ref={iframeRef} />
       </section>
       <FunctionalityButtons
         downloadFile={downloadFile}
         reset={reset}
         saveToLocalStorage={saveToLocalStorage}
+        view={view}
+        toggleView={toggleView}
       />
-    </div>
+    </Fragment>
   );
 };
 

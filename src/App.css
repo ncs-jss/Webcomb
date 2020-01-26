@@ -44,7 +44,7 @@ html {
 }
 
 .result,
-.show-no-content {
+.default-window {
   position: fixed;
   top: 0;
   left: 0;
@@ -56,6 +56,7 @@ html {
 .iframe {
   width: 100%;
   height: 100%;
+  border: none;
 }
 
 .CodeMirror-scroll {
@@ -66,8 +67,8 @@ html {
   background-color: #2a2a34c9;
 }
 
-.show-no-content {
-  background-color: #e7e7e7;
+.default-window {
+  background: radial-gradient(#f3f3f3, #333333);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,9 +80,21 @@ html {
   bottom: 0;
 }
 
-.download-button,
-.save-button,
-.reset-button {
+.fullscreen-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.fullscreen-display-buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.btn {
   color: white;
   background-color: #1d1e22;
   padding: 6px 14px;
@@ -92,14 +105,10 @@ html {
   cursor: pointer;
 }
 
-.download-button:hover,
-.save-button:hover,
-.reset-button:hover {
+.btn:hover {
   background: #3d3e3f;
 }
 
-.download-button:focus,
-.save-button:focus,
-.reset-button:focus {
+.btn:focus {
   outline: none;
 }

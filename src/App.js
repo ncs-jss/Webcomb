@@ -26,6 +26,7 @@ const App = () => {
   const [html, sethtml] = useState("");
   const [css, setcss] = useState("");
   const [js, setjs] = useState("");
+  const [view, toggleView] = useState(0); // 0 for normal view 1 for fullScreen
 
   // logic to get data from local storage
   useEffect(() => {
@@ -54,7 +55,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <section className="playground">
+      <section className="playground" style={view ? { display: "none" } : null}>
         <div className="code-editor html-code">
           <div className="editor-header">HTML</div>
           <Codemirror
@@ -104,6 +105,8 @@ const App = () => {
             js={js}
             reset={reset}
             saveToLocalStorage={saveToLocalStorage}
+            view={view}
+            toggleView={toggleView}
           />}
     </div>
   );
