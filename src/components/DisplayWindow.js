@@ -20,6 +20,9 @@ const DisplayWindow = ({
   const runCode = () => {
     if (html !== "") {
       const iframe = iframeRef.current;
+      const iframeWindow = iframe.contentWindow;
+      iframeWindow.console.log = () => {};
+      console.log(iframeWindow.console.log);
       const document = iframe.contentDocument;
       setdocumentContents(`
     <!DOCTYPE html>
@@ -28,7 +31,7 @@ const DisplayWindow = ({
       <meta charset="UTF-8">
       <meta name="viewport content="width=device-width, initial-scale=1.0">
       <meta http-equip="X-UA-Compatible content="ie=edge">
-      <title>Document</title>
+      <title>Pen</title>
       <style>
         ${css}
       </style>

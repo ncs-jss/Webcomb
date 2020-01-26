@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 const FunctionalityButtons = ({
   downloadFile,
@@ -10,12 +10,16 @@ const FunctionalityButtons = ({
 }) => {
   return (
     <div className={`buttons ${view ? "fullscreen-display-buttons" : null}`}>
-      <button className="btn" onClick={saveToLocalStorage}>
-        Save
-      </button>
-      <button className="btn" onClick={reset}>
-        Reset
-      </button>
+      {!view
+        ? <Fragment>
+            <button className="btn" onClick={saveToLocalStorage}>
+              Save
+            </button>
+            <button className="btn" onClick={reset}>
+              Reset
+            </button>
+          </Fragment>
+        : null}
       <button className="btn" onClick={downloadFile}>
         Download File
       </button>

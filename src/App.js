@@ -23,20 +23,11 @@ const App = () => {
     }
   };
 
+  // states
   const [html, sethtml] = useState("");
   const [css, setcss] = useState("");
   const [js, setjs] = useState("");
-  const [view, toggleView] = useState(0); // 0 for normal view 1 for fullScreen
-
-  // logic to get data from local storage
-  useEffect(() => {
-    const langObj = JSON.parse(localStorage.getItem("langObj"));
-    if (langObj !== null) {
-      sethtml(langObj.html);
-      setcss(langObj.css);
-      setjs(langObj.js);
-    }
-  }, []);
+  const [view, toggleView] = useState(false); // false for normal view, true for fullScreen
 
   // logic to save file
   const saveToLocalStorage = () => {
@@ -52,6 +43,16 @@ const App = () => {
     setjs("");
     localStorage.clear();
   };
+
+  // logic to get data from local storage
+  useEffect(() => {
+    const langObj = JSON.parse(localStorage.getItem("langObj"));
+    if (langObj !== null) {
+      sethtml(langObj.html);
+      setcss(langObj.css);
+      setjs(langObj.js);
+    }
+  }, []);
 
   return (
     <div className="App">
