@@ -10,9 +10,7 @@ const FunctionalityButtons = ({
   toggleView
 }) => {
   return (
-    <div
-      className={`buttons-div ${view ? "fullscreen-display-buttons" : null}`}
-    >
+    <div className="buttons-div">
       {!view
         ? <Fragment>
             <BottomButtons children="Save" onClick={saveToLocalStorage} />

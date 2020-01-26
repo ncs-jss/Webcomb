@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 import { content, runCode } from "./runCode";
 import FunctionalityButtons from "./FunctionalityButtons";
@@ -34,8 +34,8 @@ const DisplayWindow = ({
   );
 
   return (
-    <Fragment>
-      <section className={`result ${view ? "fullscreen-display" : null}`}>
+    <div className="display-window">
+      <section className="result">
         <iframe title="result" className="iframe" ref={iframeRef} />
       </section>
       <FunctionalityButtons
@@ -45,7 +45,7 @@ const DisplayWindow = ({
         view={view}
         toggleView={toggleView}
       />
-    </Fragment>
+    </div>
   );
 };
 
