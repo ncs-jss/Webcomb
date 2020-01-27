@@ -19,24 +19,21 @@ html {
 
 .playground {
   width: 600px;
-  background-color: #1e1e2c;
+  /* background-color: #1e1e2c; */
   display: flex;
   flex-direction: column;
 }
 
 .code-editor {
   height: 100%;
-  overflow: hidden;
   font-size: 18px;
   transition: height 0.45s ease-in-out;
-}
-
-.minimised-code-editor {
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .editor-header {
-  height: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +57,7 @@ html {
 }
 
 .react-codemirror2 {
-  height: calc(100% - 30px);
+  height: 100%;
   overflow: auto;
 }
 
@@ -69,13 +66,12 @@ html {
 }
 
 .CodeMirror-scroll {
-  margin-right: -30px;
   background-color: #1d1e22;
-  padding-bottom: 0;
+  /* padding-bottom: 0;
   overflow: auto !important;
   height: 100%;
   outline: none;
-  position: relative;
+  position: relative; */
 }
 
 .CodeMirror-gutter {
