@@ -31,3 +31,15 @@ export const runCode = (iframeRef, html, css, js) => {
     document.close();
   }
 };
+
+// logic to download file
+export const downloadFile = () => {
+  const link = document.createElement("a");
+  const mimeType = "text/html" || "text/plain";
+  link.setAttribute("download", "index.html");
+  link.setAttribute(
+    "href",
+    "data:" + mimeType + ";charset=utf-8," + encodeURIComponent(content)
+  );
+  link.click();
+};

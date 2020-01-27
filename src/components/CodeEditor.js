@@ -20,7 +20,6 @@ const CodeEditor = ({
   const [minimisedEditor, setminimisedEditor] = useState(false);
 
   const resizeEditor = () => {
-    console.log(numOfMinimisedScreens);
     if (numOfMinimisedScreens < 2 || minimisedEditor === true) {
       setminimisedEditor(!minimisedEditor);
       if (minimisedEditor) {
@@ -29,13 +28,12 @@ const CodeEditor = ({
         numOfMinimisedScreens++;
       }
     }
-    console.log(numOfMinimisedScreens);
   };
 
   return (
     <div
       className="code-editor"
-      style={minimisedEditor ? { height: "52px", overflow: "inherit" } : null}
+      style={minimisedEditor ? { height: "50px", overflow: "inherit" } : null}
     >
       <div className="editor-header">
         <span>

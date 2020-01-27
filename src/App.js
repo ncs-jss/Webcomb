@@ -5,6 +5,7 @@ import "./App.css";
 import DefaultWindow from "./components/DefaultWindow";
 import DisplayWindow from "./components/DisplayWindow";
 import CodeEditor from "./components/CodeEditor";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const codeMirrorOptions = {
@@ -55,44 +56,50 @@ const App = () => {
 
   return (
     <div className="App">
-      <section className="playground" style={view ? { display: "none" } : null}>
-        <CodeEditor
-          langName="HTML"
-          value={html}
-          mode="htmlmixed"
-          codeMirrorOptions={codeMirrorOptions}
-          lang={html}
-          setFn={sethtml}
-        />
-        <CodeEditor
-          langName="CSS"
-          value={css}
-          mode="css"
-          codeMirrorOptions={codeMirrorOptions}
-          lang={css}
-          setFn={setcss}
-        />
-        <CodeEditor
-          langName="JAVASCRIPT"
-          value={js}
-          mode="javascript"
-          codeMirrorOptions={codeMirrorOptions}
-          lang={js}
-          setFn={setjs}
-        />
-      </section>
+      <Navbar reset={reset} save={saveToLocalStorage} />
+      <div className="main">
+        {html === ""
+          ? <DefaultWindow />
+          : <DisplayWindow
+              html={html}
+              css={css}
+              js={js}
+              reset={reset}
+              saveToLocalStorage={saveToLocalStorage}
+              view={view}
+              toggleView={toggleView}
+            />}
 
-      {html === ""
-        ? <DefaultWindow />
-        : <DisplayWindow
-            html={html}
-            css={css}
-            js={js}
-            reset={reset}
-            saveToLocalStorage={saveToLocalStorage}
-            view={view}
-            toggleView={toggleView}
-          />}
+        <section
+          className="playground"
+          style={view ? { display: "none" } : null}
+        >
+          <CodeEditor
+            langName="HTML"
+            value={html}
+            mode="htmlmixed"
+            codeMirrorOptions={codeMirrorOptions}
+            lang={html}
+            setFn={sethtml}
+          />
+          <CodeEditor
+            langName="CSS"
+            value={css}
+            mode="css"
+            codeMirrorOptions={codeMirrorOptions}
+            lang={css}
+            setFn={setcss}
+          />
+          <CodeEditor
+            langName="JAVASCRIPT"
+            value={js}
+            mode="javascript"
+            codeMirrorOptions={codeMirrorOptions}
+            lang={js}
+            setFn={setjs}
+          />
+        </section>
+      </div>
     </div>
   );
 };

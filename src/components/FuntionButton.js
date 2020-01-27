@@ -1,6 +1,6 @@
 import React from "react";
 
-const BottomButtons = props => {
+const FuntionButton = props => {
   const { children, onClick } = props;
   return (
     <button className="btn" onClick={onClick}>
@@ -9,4 +9,4 @@ const BottomButtons = props => {
   );
 };
 
-export default BottomButtons;
+export default FuntionButton;
