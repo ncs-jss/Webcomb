@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import { Controlled as Codemirror } from "react-codemirror2";
+import "./App.css";
+
 import DefaultWindow from "./components/DefaultWindow";
 import DisplayWindow from "./components/DisplayWindow";
-
-import "./App.css";
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
-import "codemirror/mode/htmlmixed/htmlmixed";
-import "codemirror/mode/css/css";
-import "codemirror/mode/javascript/javascript";
+import CodeEditor from "./components/CodeEditor";
 
 const App = () => {
   const codeMirrorOptions = {
@@ -61,45 +56,30 @@ const App = () => {
   return (
     <div className="App">
       <section className="playground" style={view ? { display: "none" } : null}>
-        <div className="code-editor html-code">
-          <div className="editor-header">HTML</div>
-          <Codemirror
-            value={html}
-            options={{
-              mode: "htmlmixed",
-              ...codeMirrorOptions
-            }}
-            onBeforeChange={(editor, data, html) => {
-              sethtml(html);
-            }}
-          />
-        </div>
-        <div className="code-editor css-code">
-          <div className="editor-header">CSS</div>
-          <Codemirror
-            value={css}
-            options={{
-              mode: "css",
-              ...codeMirrorOptions
-            }}
-            onBeforeChange={(editor, data, css) => {
-              setcss(css);
-            }}
-          />
-        </div>
-        <div className="code-editor js-code">
-          <div className="editor-header">JAVASCRIPT</div>
-          <Codemirror
-            value={js}
-            options={{
-              mode: "javascript",
-              ...codeMirrorOptions
-            }}
-            onBeforeChange={(editor, data, js) => {
-              setjs(js);
-            }}
-          />
-        </div>
+        <CodeEditor
+          langName="HTML"
+          value={html}
+          mode="htmlmixed"
+          codeMirrorOptions={codeMirrorOptions}
+          lang={html}
+          setFn={sethtml}
+        />
+        <CodeEditor
+          langName="CSS"
+          value={css}
+          mode="css"
+          codeMirrorOptions={codeMirrorOptions}
+          lang={css}
+          setFn={setcss}
+        />
+        <CodeEditor
+          langName="JAVASCRIPT"
+          value={js}
+          mode="javascript"
+          codeMirrorOptions={codeMirrorOptions}
+          lang={js}
+          setFn={setjs}
+        />
       </section>
 
       {html === ""
@@ -118,37 +98,3 @@ const App = () => {
 };
 
 export default App;
-
-// const addRemoveComment = languageType => {
-//   let selectedContent = window.getSelection().toString();
-//   const setLanguage =
-//     languageType === "html" ? html : languageType === "css" ? css : js;
-//   const setFunc =
-//     languageType === "html"
-//       ? sethtml
-//       : languageType === "css" ? setcss : setjs;
-//   const commentType = languageType === "html" ? "<!--  -->" : "/*  */";
-//   // comment add or remove logic
-//   if (selectedContent === "") {
-//     setFunc(setLanguage.concat(commentType));
-//   } else if (
-//     selectedContent.split(" ")[0] === "<!--" ||
-//     selectedContent.split(" ")[0] === "/*"
-//   ) {
-//     let arr = selectedContent.split(" ");
-//     arr.shift();
-//     arr.pop();
-//     let str = arr.join(" ");
-//     setFunc(str);
-//   } else {
-//     languageType === "html"
-//       ? (selectedContent = "<!-- " + selectedContent + " -->")
-//       : (selectedContent = "/* " + selectedContent + " */");
-//     if(setLanguage.split(selectedContent).length === 2) {
-
-//     }
-//     else {
-
-//     }
-//   }
-// }

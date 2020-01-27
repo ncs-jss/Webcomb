@@ -20,24 +20,43 @@ html {
 .playground {
   width: 600px;
   background-color: #1e1e2c;
+  display: flex;
+  flex-direction: column;
 }
 
 .code-editor {
-  height: 33.33%;
+  height: 100%;
   overflow: hidden;
-  position: relative;
   font-size: 18px;
+  transition: height 0.45s ease-in-out;
+}
+
+.minimised-code-editor {
+  height: auto;
 }
 
 .editor-header {
-  height: 30px;
+  height: 36px;
   display: flex;
   align-items: center;
-  padding-left: 30px;
-  font-size: 20px;
+  justify-content: space-between;
+  padding: 10px;
   color: #fafafa;
-  font-weight: 600;
-  background-color: #45454552;
+  background-color: #373a41;
+}
+
+.editor-resize-button {
+  width: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.4rem;
+  background: #262629;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bolder;
+  padding: 0;
 }
 
 .react-codemirror2 {

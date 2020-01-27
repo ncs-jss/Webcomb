@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { Fragment, useRef, useEffect } from "react";
 
 import { content, runCode } from "./runCode";
-import FunctionalityButtons from "./FunctionalityButtons";
+import BottomButtons from "./BottomButtons";
 
 const DisplayWindow = ({
   html,
@@ -38,13 +38,20 @@ const DisplayWindow = ({
       <section className="result">
         <iframe title="result" className="iframe" ref={iframeRef} />
       </section>
-      <FunctionalityButtons
-        downloadFile={downloadFile}
-        reset={reset}
-        saveToLocalStorage={saveToLocalStorage}
-        view={view}
-        toggleView={toggleView}
-      />
+
+      <div className="buttons-div">
+        {!view
+          ? <Fragment>
+              <BottomButtons children="Save" onClick={saveToLocalStorage} />
+              <BottomButtons children="Reset" onClick={reset} />
+            </Fragment>
+          : null}
+        <BottomButtons children="Download File" onClick={downloadFile} />
+        <BottomButtons
+          children="Toggle View"
+          onClick={() => toggleView(!view)}
+        />
+      </div>
     </div>
   );
 };
