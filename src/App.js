@@ -91,7 +91,7 @@ const App = () => {
             setFn={setcss}
           />
           <CodeEditor
-            langName="JAVASCRIPT"
+            langName="Javascript"
             value={js}
             mode="javascript"
             codeMirrorOptions={codeMirrorOptions}
