@@ -107,7 +107,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  padding: 12px 15px;
   color: #fafafa;
   background-color: #373a41;
 }
@@ -147,10 +147,11 @@ svg {
 .default-window {
   flex-grow: 1;
   overflow: hidden;
-  background: radial-gradient(#f3f3f3, #333333);
+  background: linear-gradient(to bottom right, #000000, #262626);
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .display-window {

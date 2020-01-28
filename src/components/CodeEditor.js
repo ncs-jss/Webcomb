@@ -38,11 +38,17 @@ const CodeEditor = ({
       className="code-editor"
       style={minimisedEditor ? { height: "55px", overflow: "initial" } : null}
     >
-      <div className="editor-header">
+      <div
+        className="editor-header"
+        onClick={minimisedEditor ? resizeEditor : null}
+      >
         <span>
           {langName}
         </span>
-        <button className="editor-resize-button" onClick={resizeEditor}>
+        <button
+          className="editor-resize-button"
+          onClick={minimisedEditor ? null : resizeEditor}
+        >
           {minimisedEditor ? "+" : "-"}
         </button>
       </div>

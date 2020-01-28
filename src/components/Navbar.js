@@ -3,7 +3,7 @@ import React from "react";
 import FuntionButton from "./FuntionButton";
 import { downloadFile } from "./downloadFile";
 
-const Navbar = ({ reset, save }) => {
+const Navbar = ({ reset, save, view, html }) => {
   return (
     <div className="navbar">
       <div className="logo">
@@ -38,36 +38,38 @@ const Navbar = ({ reset, save }) => {
           Webcomb <span>&nbsp; - &nbsp; an online web editor</span>
         </p>
       </div>
-      <div className="buttons">
-        <FuntionButton
-          children={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17.726"
-                height="19.167"
-                viewBox="0 0 17.726 19.167"
-                style={{
-                  fill: "#fff",
-                  fillRule: "evenodd",
-                  marginRight: "5px"
-                }}
-              >
-                <defs />
-                <g transform="matrix(0.259, 0.966, -0.966, 0.259, 13.564, 0)">
-                  <g transform="translate(0)">
-                    <path
-                      d="M2.1,6.018H.765a.77.77,0,0,0-.733,1L2.459,11.47c.293.38.791.379,1.164-.149l2.427-4.3a.741.741,0,0,0-.733-1H4.131A4.851,4.851,0,0,1,9.059,2.006a5.021,5.021,0,0,1,5.015,5.015,4.871,4.871,0,0,1-5.015,5.015v2.006A6.94,6.94,0,0,0,16.08,7.021,7.03,7.03,0,0,0,9.059,0,6.932,6.932,0,0,0,2.1,6.018"
-                      transform="translate(0)"
-                    />
-                  </g>
-                </g>
-              </svg>
-              <span>Reset</span>
-            </div>
-          }
-          onClick={reset}
-        />
+      <div className="buttons" style={html === "" ? { display: "none" } : null}>
+        {!view
+          ? <FuntionButton
+              children={
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17.726"
+                    height="19.167"
+                    viewBox="0 0 17.726 19.167"
+                    style={{
+                      fill: "#fff",
+                      fillRule: "evenodd",
+                      marginRight: "5px"
+                    }}
+                  >
+                    <defs />
+                    <g transform="matrix(0.259, 0.966, -0.966, 0.259, 13.564, 0)">
+                      <g transform="translate(0)">
+                        <path
+                          d="M2.1,6.018H.765a.77.77,0,0,0-.733,1L2.459,11.47c.293.38.791.379,1.164-.149l2.427-4.3a.741.741,0,0,0-.733-1H4.131A4.851,4.851,0,0,1,9.059,2.006a5.021,5.021,0,0,1,5.015,5.015,4.871,4.871,0,0,1-5.015,5.015v2.006A6.94,6.94,0,0,0,16.08,7.021,7.03,7.03,0,0,0,9.059,0,6.932,6.932,0,0,0,2.1,6.018"
+                          transform="translate(0)"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <span>Reset</span>
+                </div>
+              }
+              onClick={reset}
+            />
+          : null}
         <FuntionButton
           children={
             <div style={{ display: "flex", alignItems: "center" }}>

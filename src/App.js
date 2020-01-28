@@ -56,7 +56,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar reset={reset} save={saveToLocalStorage} />
+      <Navbar reset={reset} save={saveToLocalStorage} view={view} html={html} />
       <div className="main">
         {html === ""
           ? <DefaultWindow />
