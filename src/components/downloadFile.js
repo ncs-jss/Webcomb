@@ -9,6 +9,8 @@ export const runCode = (iframeRef, html, css, js) => {
     <!DOCTYPE html>
     <html lang="en">
     <head>
+    <link rel="icon" href="./favicon.png"/>
+      <link rel="icon" href="http://hackncs.com/favicon.ico" />
       <meta charset="UTF-8">
       <meta name="viewport content="width=device-width, initial-scale=1.0">
       <meta http-equip="X-UA-Compatible content="ie=edge">
@@ -19,6 +21,7 @@ export const runCode = (iframeRef, html, css, js) => {
     </head>
     <body>
       ${html}
+      <pre style="display: none;"></pre>
       <script type="text/javascript">
         ${js}
       </script>

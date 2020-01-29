@@ -70,10 +70,7 @@ const App = () => {
               toggleView={toggleView}
             />}
 
-        <section
-          className="playground"
-          style={view ? { display: "none" } : null}
-        >
+        <section className="playground" style={view ? { width: "0" } : null}>
           <CodeEditor
             langName="HTML"
             value={html}

@@ -5,6 +5,7 @@
 
 html {
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 *,
@@ -37,10 +38,18 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  .logo {
+    margin: 10px;
+  }
+
   .navbar {
-    height: 92px;
+    height: auto;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .navbar .buttons {
+    margin: 10px;
   }
 }
 
@@ -92,12 +101,13 @@ svg {
   width: 576px;
   display: flex;
   flex-direction: column;
+  transition: width 0.45s ease-in-out;
 }
 
 .code-editor {
   height: 100%;
   font-size: 18px;
-  transition: height 0.45s ease-in-out;
+  transition: height 0.25s ease-in-out;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -110,6 +120,7 @@ svg {
   padding: 12px 15px;
   color: #fafafa;
   background-color: #373a41;
+  cursor: pointer;
 }
 
 .editor-resize-button {
@@ -151,6 +162,7 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
 }
 
@@ -222,5 +234,11 @@ svg {
 
   .display-window > button {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .btn {
+    font-size: 13px;
   }
 }
