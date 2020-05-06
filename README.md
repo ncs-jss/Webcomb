@@ -13,7 +13,7 @@ This is a simple playground to practice Frontend Development(HTML, CSS, Javascri
   
      `git clone https://github.com/ncs-jss/Webcomb`
 
-2. cd into GitHub-Battle
+2. cd into Webcomb
   
       `cd Webcomb`
       
