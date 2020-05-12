@@ -9,7 +9,7 @@ export const runCode = (iframeRef, html, css, js) => {
     <!DOCTYPE html>
     <html lang="en">
     <head>
-    <link rel="icon" href="./favicon.png"/>
+      <link rel="icon" href="./favicon.png" />
       <link rel="icon" href="http://hackncs.com/favicon.ico" />
       <meta charset="UTF-8">
       <meta name="viewport content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,6 @@ export const runCode = (iframeRef, html, css, js) => {
         ${js}
       </script>
     </body>
-    </head>
     </html>
     `;
     document.open();
