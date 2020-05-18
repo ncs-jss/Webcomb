@@ -18,6 +18,7 @@ html {
 
 body {
   font-family: proximaNova, sans-serif;
+  font-size: 16px;
 }
 
 .App {
@@ -106,7 +107,7 @@ svg {
 
 .code-editor {
   height: 100%;
-  font-size: 18px;
+  font-size: 1.125rem;
   transition: height 0.25s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -202,8 +203,8 @@ svg {
 }
 
 .btn:hover {
-  background: #494949;
-  border-color: #494949;
+  background: #494e5a;
+  border-color: #494e5a;
 }
 
 .btn:focus {

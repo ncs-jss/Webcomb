@@ -1,52 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import "./App.css";
+import './App.css';
 
-import DefaultWindow from "./components/DefaultWindow";
-import DisplayWindow from "./components/DisplayWindow";
-import CodeEditor from "./components/CodeEditor";
-import Navbar from "./components/Navbar";
+import DefaultWindow from './components/DefaultWindow';
+import DisplayWindow from './components/DisplayWindow';
+import CodeEditor from './components/CodeEditor';
+import Navbar from './components/Navbar';
 
 const App = () => {
-  const codeMirrorOptions = {
-    theme: "material",
-    lineNumbers: true,
-    scrollbarStyle: null,
-    lineWrapping: true,
-    tabSize: 2,
-    extraKeys: {
-      "Ctrl-S": () => saveToLocalStorage()
-    }
-  };
-
   // states
-  const [html, sethtml] = useState("");
-  const [css, setcss] = useState("");
-  const [js, setjs] = useState("");
+  const [html, sethtml] = useState('');
+  const [css, setcss] = useState('');
+  const [js, setjs] = useState('');
   const [view, toggleView] = useState(false); // false for normal view, true for fullScreen
 
   // logic to save file
   const saveToLocalStorage = () => {
-    if (html !== "" || css !== "" || js !== "") {
+    if (html !== '' || css !== '' || js !== '') {
       const langObj = { html, css, js };
-      localStorage.setItem("langObj", JSON.stringify(langObj));
-      window.alert("Pen Saved ;-)");
+      localStorage.setItem('langObj', JSON.stringify(langObj));
+      window.alert('Pen Saved ;-)');
     }
   };
 
   // logic to reset everyhting
   const reset = () => {
-    if (window.confirm("Reset Pen?")) {
-      sethtml("");
-      setcss("");
-      setjs("");
+    if (window.confirm('Reset Pen?')) {
+      sethtml('');
+      setcss('');
+      setjs('');
       localStorage.clear();
     }
   };
 
   // logic to get data from local storage
   useEffect(() => {
-    const langObj = JSON.parse(localStorage.getItem("langObj"));
+    const langObj = JSON.parse(localStorage.getItem('langObj'));
     if (langObj !== null) {
       sethtml(langObj.html);
       setcss(langObj.css);
@@ -55,45 +44,45 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Navbar reset={reset} save={saveToLocalStorage} view={view} html={html} />
-      <div className="main">
-        {html === ""
+      <div className='main'>
+        {html === ''
           ? <DefaultWindow />
           : <DisplayWindow
-              html={html}
-              css={css}
-              js={js}
-              reset={reset}
-              saveToLocalStorage={saveToLocalStorage}
-              view={view}
-              toggleView={toggleView}
+            html={html}
+            css={css}
+            js={js}
+            reset={reset}
+            saveToLocalStorage={saveToLocalStorage}
+            view={view}
+            toggleView={toggleView}
             />}
 
-        <section className="playground" style={view ? { width: "0" } : null}>
+        <section className='playground' style={view ? { width: '0' } : null}>
           <CodeEditor
-            langName="HTML"
+            langName='HTML'
             value={html}
-            mode="htmlmixed"
-            codeMirrorOptions={codeMirrorOptions}
+            mode='htmlmixed'
             lang={html}
             setFn={sethtml}
+            saveToLocalStorage={saveToLocalStorage}
           />
           <CodeEditor
-            langName="CSS"
+            langName='CSS'
             value={css}
-            mode="css"
-            codeMirrorOptions={codeMirrorOptions}
+            mode='css'
             lang={css}
             setFn={setcss}
+            saveToLocalStorage={saveToLocalStorage}
           />
           <CodeEditor
-            langName="Javascript"
+            langName='Javascript'
             value={js}
-            mode="javascript"
-            codeMirrorOptions={codeMirrorOptions}
+            mode='javascript'
             lang={js}
             setFn={setjs}
+            saveToLocalStorage={saveToLocalStorage}
           />
         </section>
       </div>
