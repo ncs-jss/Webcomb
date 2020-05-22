@@ -41,7 +41,7 @@ export const downloadFile = () => {
   link.setAttribute('download', 'index.html');
   link.setAttribute(
     'href',
-    'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(content)
+    'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(content),
   );
   link.click();
 };

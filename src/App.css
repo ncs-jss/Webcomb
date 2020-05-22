@@ -69,6 +69,15 @@ body {
   padding: 0 20px;
 }
 
+.navbar .btn > div {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .btn > div > svg {
+  margin-right: 5px;
+}
+
 @media only screen and (max-width: 600px) {
   .logo {
     margin: 10px;
@@ -88,20 +97,6 @@ body {
 /* navbar svg */
 svg {
   margin-right: 10px;
-}
-.a {
-  fill: 'none';
-}
-.b,
-.c,
-.d {
-  stroke: none;
-}
-.c {
-  fill: #ffe923;
-}
-.d {
-  fill: #f3f3f3;
 }
 
 /* navbar main-heading */
