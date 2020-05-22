@@ -16,9 +16,40 @@ html {
   padding: 0;
 }
 
+::selection {
+  color: #fff;
+  background: #5c7fd0;
+}
+
 body {
   font-family: proximaNova, sans-serif;
   font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.btn {
+  color: white;
+  background-color: #373a41;
+  font-size: 1rem;
+  padding: 5px 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid #373a41;
+  transition: background 0.3s;
+  cursor: pointer;
+  border-radius: 2.5px;
+}
+
+.btn:hover {
+  background: #494e5a;
+  border-color: #494e5a;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .App {
@@ -59,7 +90,7 @@ svg {
   margin-right: 10px;
 }
 .a {
-  fill: "none";
+  fill: 'none';
 }
 .b,
 .c,
@@ -185,30 +216,14 @@ svg {
   border: none;
 }
 
-.buttons {
-  display: flex;
+.bottom-bar {
+  width: 100%;
+  background: #373a41;
+  padding: 5px;
 }
 
-.btn {
-  color: white;
-  background-color: #373a41;
-  font-size: 1rem;
-  padding: 5px 12px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: 1px solid #373a41;
-  transition: background 0.3s;
-  cursor: pointer;
-  border-radius: 2.5px;
-}
-
-.btn:hover {
+.bottom-bar button {
   background: #494e5a;
-  border-color: #494e5a;
-}
-
-.btn:focus {
-  outline: none;
 }
 
 @media only screen and (max-width: 650px) {

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import './App.css';
 
+import Navbar from './components/Navbar';
 import DefaultWindow from './components/DefaultWindow';
 import DisplayWindow from './components/DisplayWindow';
 import CodeEditor from './components/CodeEditor';
-import Navbar from './components/Navbar';
 
 const App = () => {
   // states
@@ -33,7 +33,7 @@ const App = () => {
     }
   };
 
-  // logic to get data from local storage
+  // logic to get data from local storage when component mounts
   useEffect(() => {
     const langObj = JSON.parse(localStorage.getItem('langObj'));
     if (langObj !== null) {
@@ -44,12 +44,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Navbar reset={reset} save={saveToLocalStorage} view={view} html={html} />
-      <div className='main'>
-        {html === ''
-          ? <DefaultWindow />
-          : <DisplayWindow
+      <div className="main">
+        {html === '' ? (
+          <DefaultWindow />
+        ) : (
+          <DisplayWindow
             html={html}
             css={css}
             js={js}
@@ -57,29 +58,30 @@ const App = () => {
             saveToLocalStorage={saveToLocalStorage}
             view={view}
             toggleView={toggleView}
-            />}
+          />
+        )}
 
-        <section className='playground' style={view ? { width: '0' } : null}>
+        <section className="playground" style={view ? { width: '0' } : null}>
           <CodeEditor
-            langName='HTML'
+            langName="HTML"
             value={html}
-            mode='htmlmixed'
+            mode="htmlmixed"
             lang={html}
             setFn={sethtml}
             saveToLocalStorage={saveToLocalStorage}
           />
           <CodeEditor
-            langName='CSS'
+            langName="CSS"
             value={css}
-            mode='css'
+            mode="css"
             lang={css}
             setFn={setcss}
             saveToLocalStorage={saveToLocalStorage}
           />
           <CodeEditor
-            langName='Javascript'
+            langName="Javascript"
             value={js}
-            mode='javascript'
+            mode="javascript"
             lang={js}
             setFn={setjs}
             saveToLocalStorage={saveToLocalStorage}
