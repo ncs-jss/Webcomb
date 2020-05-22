@@ -17,7 +17,7 @@ html {
 }
 
 ::selection {
-  color: #fff;
+  color: #ffffff;
   background: #5c7fd0;
 }
 
@@ -31,21 +31,21 @@ body {
 }
 
 .btn {
-  color: white;
+  color: #ffffff;
   background-color: #373a41;
   font-size: 1rem;
-  padding: 5px 12px;
+  padding: 3px 10px;
   margin-left: 10px;
   margin-right: 10px;
   border: 1px solid #373a41;
   transition: background 0.3s;
   cursor: pointer;
-  border-radius: 2.5px;
+  border-radius: 3px;
 }
 
 .btn:hover {
-  background: #494e5a;
-  border-color: #494e5a;
+  background: #464a52;
+  border-color: #464a52;
 }
 
 .btn:focus {
@@ -218,15 +218,19 @@ svg {
 
 .bottom-bar {
   width: 100%;
-  background: #373a41;
+  background: #292c35;
   padding: 5px;
 }
 
 .bottom-bar button {
-  background: #494e5a;
+  background: #464a52;
 }
 
 @media only screen and (max-width: 650px) {
+  body {
+    font-size: 14px;
+  }
+
   .App {
     height: auto;
     overflow-x: hidden;
@@ -244,17 +248,13 @@ svg {
     height: 300px;
   }
 
-  .btn {
-    font-size: 14px;
-  }
-
-  .display-window > button {
+  .bottom-bar {
     display: none;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .btn {
+  body {
     font-size: 13px;
   }
 }

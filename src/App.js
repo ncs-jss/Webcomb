@@ -79,7 +79,7 @@ const App = () => {
             saveToLocalStorage={saveToLocalStorage}
           />
           <CodeEditor
-            langName="Javascript"
+            langName="JavaScript"
             value={js}
             mode="javascript"
             lang={js}
