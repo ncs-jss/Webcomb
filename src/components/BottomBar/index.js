@@ -5,14 +5,14 @@ import Icon from '../Icon';
 
 const BottomBar = ({ toggleView, view }) => {
   return (
-    <div className="bottom-bar">
-      <FunctionButton onClick={() => toggleView(!view)}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+    <>
+      <div className="bottom-bar">
+        <FunctionButton onClick={() => toggleView(!view)}>
           <Icon name="toggle" />
           <span>Toggle View</span>
-        </div>
-      </FunctionButton>
-    </div>
+        </FunctionButton>
+      </div>
+    </>
   );
 };
 

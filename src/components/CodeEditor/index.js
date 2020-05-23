@@ -15,7 +15,7 @@ const CodeEditor = ({
   lang,
   mode,
   saveToLocalStorage,
-  setFn
+  setFn,
 }) => {
   const [minimisedEditor, setminimisedEditor] = useState(false);
 
@@ -40,20 +40,17 @@ const CodeEditor = ({
     lineWrapping: true,
     tabSize: 2,
     extraKeys: {
-      'Ctrl-S': () => saveToLocalStorage()
-    }
+      'Ctrl-S': () => saveToLocalStorage(),
+    },
   };
 
   return (
     <div
-      className='code-editor'
-      style={minimisedEditor ? { height: '55px', overflow: 'initial' } : null}
-    >
-      <div className='editor-header' onClick={resizeEditor}>
-        <span>
-          {langName}
-        </span>
-        <button className='editor-resize-button'>
+      className="code-editor"
+      style={minimisedEditor ? { height: '55px', overflow: 'initial' } : null}>
+      <div className="header" onClick={resizeEditor}>
+        <span>{langName}</span>
+        <button className="editor-resize-button">
           {minimisedEditor ? '+' : '-'}
         </button>
       </div>
@@ -61,7 +58,7 @@ const CodeEditor = ({
         value={value}
         options={{
           mode: mode,
-          ...codeMirrorOptions
+          ...codeMirrorOptions,
         }}
         onBeforeChange={(editor, data, lang) => {
           setFn(lang);
