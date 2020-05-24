@@ -265,6 +265,7 @@ svg {
   padding: 20px;
   border-bottom: 0.6px solid #cacaca;
   font-size: 1.7rem;
+  letter-spacing: 0.1ch;
 }
 
 .modal-heading button {
@@ -327,6 +328,42 @@ svg {
   width: 100%;
   margin: 12px 0;
   font-size: 1.3rem;
+}
+
+#upload-file-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#loading {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.75s linear infinite;
+  margin: 5px;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.image-details p {
+  margin: 10px 0;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 4px;
+  background: #1d1e22;
+  border: none;
+  cursor: pointer;
+}
+
+.image-url {
+  color: #2196f3;
 }
 
 @media only screen and (max-width: 650px) {

@@ -168,4 +168,29 @@ export const getIcons = () => [
     width: '30',
     height: '30',
   },
+  {
+    id: 8,
+    name: 'import',
+    svg: (
+      <g
+        style={{ mixBlendMode: 'normal' }}
+        fill="none"
+        fontFamily="none"
+        fillRule="nonzero"
+        fontSize="none"
+        stroke="none"
+        strokeDasharray=""
+        strokeLinecap="butt"
+        strokeWidth="1"
+        textAnchor="none">
+        <path d="M0,172v-172h172v172z" fill="none" />
+        <g fill="#ffffff">
+          <path d="M32.25,16.125v139.75h96.75v-10.75h-36.70117h-49.29883v-118.25h53.75v32.25h32.25v49.29883l10.75,-10.75v-46.14941l-35.39942,-35.39941zM107.5,34.47559l13.89942,13.89941h-13.89942zM145.125,107.5l-26.875,26.875h21.5v37.625h10.75v-37.625h21.5z" />
+        </g>
+      </g>
+    ),
+    viewBox: '0 0 172 172',
+    width: '20',
+    height: '20',
+  },
 ];
