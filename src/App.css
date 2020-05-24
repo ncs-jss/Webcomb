@@ -52,6 +52,16 @@ body {
   outline: none;
 }
 
+.danger-btn {
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+.danger-btn:hover {
+  border-color: #d9534f;
+  background-color: #d43f3a;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -225,6 +235,74 @@ svg {
   display: flex;
   align-items: center;
   padding: 0px 10px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-main {
+  width: 400px;
+  background: #2c303a;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 0.6px solid #cacaca;
+  font-size: 1.7rem;
+}
+
+.modal-heading button {
+  height: 30px;
+  width: 30px;
+}
+
+.modal-main button {
+  color: #ffffff;
+  background: #525252;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.modal-main .danger-btn {
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+.modal-heading button:focus {
+  outline: none;
+}
+
+.modal-content {
+  padding: 12px 24px;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
 @media only screen and (max-width: 650px) {

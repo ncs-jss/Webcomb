@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import FunctionButton from '../FunctionButton';
 import Icon from '../Icon';
 
-import { downloadFile } from '../../utils/helpers';
-
-const Navbar = ({ reset, save, view, html }) => {
+const Navbar = ({ reset, save, view, html, download }) => {
   return (
     <div className="navbar">
       <div className="logo">
@@ -16,7 +14,7 @@ const Navbar = ({ reset, save, view, html }) => {
       </div>
       <div className="buttons" style={html === '' ? { display: 'none' } : null}>
         {!view && (
-          <FunctionButton onClick={reset}>
+          <FunctionButton onClick={reset} name="reset">
             <Icon
               name="reset"
               style={{
@@ -38,7 +36,7 @@ const Navbar = ({ reset, save, view, html }) => {
           />
           <span>Save</span>
         </FunctionButton>
-        <FunctionButton onClick={downloadFile}>
+        <FunctionButton onClick={download}>
           <Icon
             name="download"
             style={{
