@@ -38,7 +38,7 @@ const App = () => {
   const showResetModal = () => {
     setModalContent({
       title: 'Reset Pen?',
-      desc: 'Clicking Reset will reset the Pen!',
+      desc: 'Clicking the Reset button will reset the Pen!',
       reset: true,
     });
     showModal();
@@ -65,7 +65,6 @@ const App = () => {
 
   return (
     <>
-      {/* navbar button's modal */}
       {modal && (
         <Modal title={modalContent.title} closeModal={hideModal}>
           <p>{modalContent.desc}</p>

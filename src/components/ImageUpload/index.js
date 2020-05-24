@@ -64,7 +64,9 @@ const ImageUpload = ({ hideModal, showModal }) => {
           <h2 style={{ fontWeight: 'normal' }}>Image successfully uploaded!</h2>
           <br />
           <span>Image name:</span>
-          <p title="copy name">{fileName}</p>
+          <p title="copy name" onClick={copyName}>
+            {fileName}
+          </p>
           <span>Image Url:</span>
           <p className="image-url" onClick={copyUrl} title="copy url">
             {imgUrl}
