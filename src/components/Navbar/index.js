@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import FunctionButton from '../FunctionButton';
 import Icon from '../Icon';

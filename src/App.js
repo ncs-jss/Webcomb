@@ -34,15 +34,7 @@ const App = () => {
     }
   };
 
-  // logic to reset everyhting
-  const reset = () => {
-    sethtml('');
-    setcss('');
-    setjs('');
-    localStorage.clear();
-    hideModal();
-  };
-
+  // show reset modal
   const showResetModal = () => {
     setModalContent({
       title: 'Reset Pen?',
@@ -52,14 +44,13 @@ const App = () => {
     showModal();
   };
 
-  // download file
-  const download = () => {
-    downloadFile();
-    setModalContent({
-      title: 'Pen Downloaded!',
-      desc: 'The pen has been downloaded :-)',
-    });
-    showModal();
+  // logic to reset everyhting
+  const reset = () => {
+    sethtml('');
+    setcss('');
+    setjs('');
+    localStorage.clear();
+    hideModal();
   };
 
   // logic to get data from local storage when component mounts
@@ -74,6 +65,7 @@ const App = () => {
 
   return (
     <>
+      {/* navbar button's modal */}
       {modal && (
         <Modal title={modalContent.title} closeModal={hideModal}>
           <p>{modalContent.desc}</p>
@@ -99,7 +91,7 @@ const App = () => {
           save={saveToLocalStorage}
           view={view}
           html={html}
-          download={download}
+          download={downloadFile}
         />
         <div className="main">
           {html === '' ? (

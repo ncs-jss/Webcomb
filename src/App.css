@@ -305,6 +305,30 @@ svg {
   margin: 10px 0;
 }
 
+.custom-file-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+#file-upload {
+  display: none;
+}
+
+#upload-file-button {
+  background-color: #449d44;
+  border-color: #398439;
+  padding: 4px 10px;
+  width: 100%;
+  margin: 12px 0;
+  font-size: 1.3rem;
+}
+
 @media only screen and (max-width: 650px) {
   body {
     font-size: 14px;
