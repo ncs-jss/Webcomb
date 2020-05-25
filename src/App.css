@@ -315,6 +315,7 @@ svg {
   cursor: pointer;
   margin: 10px 0;
   padding: 10px;
+  transition: all 0.35s ease-in-out;
 }
 
 #file-upload {
@@ -352,6 +353,11 @@ svg {
   }
 }
 
+.image-details h2,
+.upload-error h2 {
+  font-weight: normal;
+}
+
 .image-details p {
   margin: 10px 0;
   border: 1px solid white;
@@ -364,6 +370,11 @@ svg {
 
 .image-url {
   color: #2196f3;
+}
+
+.error-message {
+  color: #c9302c;
+  margin: 10px 0;
 }
 
 @media only screen and (max-width: 650px) {

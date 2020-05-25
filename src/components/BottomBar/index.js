@@ -11,7 +11,7 @@ const BottomBar = ({ toggleView, view }) => {
 
   return (
     <>
-      {modal && <ImageUpload showModal={showModal} hideModal={hideModal} />}
+      {modal && <ImageUpload hideModal={hideModal} />}
       <div className="bottom-bar">
         <FunctionButton onClick={showModal}>
           <Icon name="import" />

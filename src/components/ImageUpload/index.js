@@ -5,11 +5,12 @@ import Modal from '../Modal';
 
 import { uploadImage } from '../../api';
 
-const ImageUpload = ({ hideModal, showModal }) => {
+const ImageUpload = ({ hideModal }) => {
   const [fileName, setFileName] = useState('No file chosen!');
   const [file, setFile] = useState('');
   const [imgUrl, setImgUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
 
   const handleChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -19,12 +20,16 @@ const ImageUpload = ({ hideModal, showModal }) => {
   };
 
   const handleSubmit = async (e) => {
-    setUploading(true);
     e.preventDefault();
+    setUploading(true);
     const formData = new FormData();
     formData.append('image', file);
     const data = await uploadImage(formData);
-    setImgUrl(data.image.url);
+    if (!data.err) {
+      setImgUrl(data.image.url);
+    } else {
+      setUploadError(data.err);
+    }
     setUploading(false);
   };
 
@@ -34,7 +39,7 @@ const ImageUpload = ({ hideModal, showModal }) => {
 
   return (
     <Modal title="Import Images" closeModal={hideModal}>
-      {!imgUrl ? (
+      {!imgUrl && !uploadError ? (
         <>
           <label htmlFor="file-upload" className="custom-file-upload">
             Choose an Image
@@ -59,9 +64,9 @@ const ImageUpload = ({ hideModal, showModal }) => {
             </button>
           )}
         </>
-      ) : (
+      ) : !uploadError ? (
         <div className="image-details">
-          <h2 style={{ fontWeight: 'normal' }}>Image successfully uploaded!</h2>
+          <h2>Image successfully uploaded!</h2>
           <br />
           <span>Image name:</span>
           <p title="copy name" onClick={copyName}>
@@ -71,6 +76,11 @@ const ImageUpload = ({ hideModal, showModal }) => {
           <p className="image-url" onClick={copyUrl} title="copy url">
             {imgUrl}
           </p>
+        </div>
+      ) : (
+        <div className="upload-error">
+          <h2>Error while uploading :-(</h2>
+          <p className="error-message">{uploadError}</p>
         </div>
       )}
     </Modal>
