@@ -5,7 +5,8 @@ Webcomb is a simple playground to practice Frontend Development(HTML, CSS, Javas
 * ReactJS
 * React-Hooks
 * React-Codemirror-2
-* Netlify.com (Hosting)
+* ImgBB API (For hosting images)
+* Netlify.com (For website hosting)
 
 ### How to Run Locally :
 
@@ -17,10 +18,12 @@ Webcomb is a simple playground to practice Frontend Development(HTML, CSS, Javas
   
       `cd Webcomb`
       
-3. Install all dependencies
+3. Add API credentials and API endpoint in `.env` file 
+
+4. Install all dependencies from npm
       
       `npm install` or `npm i`
       
-4. Start local server
+5. Start local server
       
       `npm start`
