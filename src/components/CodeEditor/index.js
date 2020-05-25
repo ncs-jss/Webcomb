@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Controlled as Codemirror } from 'react-codemirror2';
+
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
@@ -14,8 +15,8 @@ const CodeEditor = ({
   value,
   lang,
   mode,
-  saveToLocalStorage,
   setFn,
+  codeMirrorOptions,
 }) => {
   const [minimisedEditor, setminimisedEditor] = useState(false);
 
@@ -31,17 +32,6 @@ const CodeEditor = ({
       numOfMinimisedScreens--;
       setminimisedEditor(!minimisedEditor);
     }
-  };
-
-  const codeMirrorOptions = {
-    theme: 'material',
-    lineNumbers: true,
-    scrollbarStyle: null,
-    lineWrapping: true,
-    tabSize: 2,
-    extraKeys: {
-      'Ctrl-S': () => saveToLocalStorage(),
-    },
   };
 
   return (

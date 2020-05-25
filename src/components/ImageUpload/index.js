@@ -11,6 +11,7 @@ const ImageUpload = ({ hideModal }) => {
   const [imgUrl, setImgUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState('');
+  const [copiedText, setCopiedText] = useState(null);
 
   const handleChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -33,9 +34,11 @@ const ImageUpload = ({ hideModal }) => {
     setUploading(false);
   };
 
-  const copyName = () => navigator.clipboard.writeText(fileName);
+  const copyName = () =>
+    navigator.clipboard.writeText(fileName).then(() => setCopiedText(fileName));
 
-  const copyUrl = () => navigator.clipboard.writeText(imgUrl);
+  const copyUrl = () =>
+    navigator.clipboard.writeText(imgUrl).then(() => setCopiedText(imgUrl));
 
   return (
     <Modal title="Import Images" closeModal={hideModal}>
@@ -69,12 +72,18 @@ const ImageUpload = ({ hideModal }) => {
           <h2>Image successfully uploaded!</h2>
           <br />
           <span>Image name:</span>
-          <p title="copy name" onClick={copyName}>
+          <p>
             {fileName}
+            <span className="copy-text" onClick={copyName} title="copy name">
+              {fileName === copiedText ? 'Copied!' : 'Copy'}
+            </span>
           </p>
           <span>Image Url:</span>
-          <p className="image-url" onClick={copyUrl} title="copy url">
+          <p className="image-url">
             {imgUrl}
+            <span className="copy-text" onClick={copyUrl} title="copy url">
+              {imgUrl === copiedText ? 'Copied!' : 'Copy'}
+            </span>
           </p>
         </div>
       ) : (

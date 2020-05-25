@@ -365,7 +365,7 @@ svg {
   border-radius: 4px;
   background: #1d1e22;
   border: none;
-  cursor: pointer;
+  position: relative;
 }
 
 .image-url {
@@ -375,6 +375,18 @@ svg {
 .error-message {
   color: #c9302c;
   margin: 10px 0;
+}
+
+.copy-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75rem;
+  color: #fff;
+  padding: 2px 6px;
+  background: #525252;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 650px) {

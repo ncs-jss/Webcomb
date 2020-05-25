@@ -21,6 +21,20 @@ const App = () => {
   const [modalContent, setModalContent] = useState({});
   const [modal, showModal, hideModal] = useModal();
 
+  // codemirror extra options
+  const codeMirrorOptions = {
+    theme: 'material',
+    lineNumbers: true,
+    scrollbarStyle: null,
+    lineWrapping: true,
+    tabSize: 2,
+    extraKeys: {
+      'Ctrl-S': () => saveToLocalStorage(),
+      'Ctrl-R': () => showResetModal(),
+      'Ctrl-D': () => downloadFile(),
+    },
+  };
+
   // logic to save file
   const saveToLocalStorage = () => {
     if (html !== '' || css !== '' || js !== '') {
@@ -114,7 +128,7 @@ const App = () => {
               mode="htmlmixed"
               lang={html}
               setFn={sethtml}
-              saveToLocalStorage={saveToLocalStorage}
+              codeMirrorOptions={codeMirrorOptions}
             />
             <CodeEditor
               langName="CSS"
@@ -122,7 +136,7 @@ const App = () => {
               mode="css"
               lang={css}
               setFn={setcss}
-              saveToLocalStorage={saveToLocalStorage}
+              codeMirrorOptions={codeMirrorOptions}
             />
             <CodeEditor
               langName="JavaScript"
@@ -130,7 +144,7 @@ const App = () => {
               mode="javascript"
               lang={js}
               setFn={setjs}
-              saveToLocalStorage={saveToLocalStorage}
+              codeMirrorOptions={codeMirrorOptions}
             />
           </section>
         </div>
