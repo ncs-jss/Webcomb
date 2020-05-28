@@ -145,7 +145,7 @@ svg {
 
 .playground {
   width: 576px;
-  min-width: 350px;
+  /* min-width: 350px; */
   max-width: calc(100vw - 10px);
   display: flex;
   flex-direction: column;
@@ -221,8 +221,14 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.default-window::before {
+  content: 'Start by writing some HTML';
+  color: #fff;
   text-align: center;
-  color: white;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 .display-window {

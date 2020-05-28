@@ -150,7 +150,10 @@ const App = () => {
           )}
 
           <section className="playground">
-            <div className="resizable" onMouseDown={mouseDownHandler}></div>
+            <div
+              className="resizable"
+              onMouseDown={mouseDownHandler}
+              title="resize"></div>
             <CodeEditor
               langName="HTML"
               value={html}
