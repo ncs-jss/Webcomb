@@ -18,7 +18,6 @@ const App = () => {
   const [html, sethtml] = useState('');
   const [css, setcss] = useState('');
   const [js, setjs] = useState('');
-  const [view, toggleView] = useState(false); // false for normal view, true for fullScreen
   const [isResizable, setIsResizable] = useState(false);
   const [modalContent, setModalContent] = useState({});
   const [modal, showModal, hideModal] = useModal();
@@ -132,7 +131,6 @@ const App = () => {
         <Navbar
           reset={showResetModal}
           save={saveToLocalStorage}
-          view={view}
           html={html}
           download={downloadFile}
         />
@@ -146,8 +144,6 @@ const App = () => {
               js={js}
               reset={reset}
               saveToLocalStorage={saveToLocalStorage}
-              // view={view}
-              // toggleView={toggleView}
               mouseMoveHandler={mouseMoveHandler}
               mouseUpHandler={mouseUpHandler}
             />
@@ -182,7 +178,7 @@ const App = () => {
           </section>
         </div>
 
-        <BottomBar view={view} toggleView={toggleView} />
+        <BottomBar />
       </div>
     </>
   );

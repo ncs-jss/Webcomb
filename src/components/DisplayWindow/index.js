@@ -8,8 +8,6 @@ const DisplayWindow = ({
   js,
   reset,
   saveToLocalStorage,
-  view,
-  toggleView,
   mouseMoveHandler,
   mouseUpHandler,
 }) => {
