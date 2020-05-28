@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Iframe from '../Iframe';
-import BottomBar from '../BottomBar';
 
 const DisplayWindow = ({
   html,
@@ -9,8 +8,8 @@ const DisplayWindow = ({
   js,
   reset,
   saveToLocalStorage,
-  view,
-  toggleView,
+  mouseMoveHandler,
+  mouseUpHandler,
 }) => {
   return (
     <div className="display-window">
@@ -20,8 +19,9 @@ const DisplayWindow = ({
         js={js}
         reset={reset}
         saveToLocalStorage={saveToLocalStorage}
+        mouseMoveHandler={mouseMoveHandler}
+        mouseUpHandler={mouseUpHandler}
       />
-      <BottomBar view={view} toggleView={toggleView} />
     </div>
   );
 };

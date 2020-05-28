@@ -3,17 +3,17 @@
   src: url(./assets/fonts/ProximaNovaRegular.ttf);
 }
 
-html {
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -95,12 +95,18 @@ body {
 
   .navbar {
     height: auto;
+    padding: 5px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .navbar .buttons {
     margin: 10px;
+  }
+
+  .navbar .btn {
+    font-size: 0.9rem;
+    padding: 6px;
   }
 }
 
@@ -134,14 +140,27 @@ svg {
 .main {
   display: flex;
   justify-content: space-between;
-  height: calc(100% - 60px);
+  height: calc(100% - 92px);
 }
 
 .playground {
   width: 576px;
+  /* min-width: 350px; */
+  max-width: calc(100vw - 10px);
   display: flex;
   flex-direction: column;
-  transition: all 0.45s ease-in-out;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.resizable {
+  width: 10px;
+  position: absolute;
+  background: #3f4145;
+  height: 100%;
+  z-index: 4;
+  left: -10px;
+  cursor: ew-resize;
 }
 
 .code-editor {
@@ -202,8 +221,14 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.default-window::before {
+  content: 'Start by writing some HTML';
+  color: #fff;
   text-align: center;
-  color: white;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 .display-window {
@@ -219,16 +244,16 @@ svg {
 }
 
 .iframe {
-  width: 100%;
+  width: calc(100% - 10px);
   height: 100%;
   border: none;
 }
 
 .bottom-bar {
-  width: 100%;
   background: #2c303a;
   padding: 5px;
   display: flex;
+  height: 32px;
 }
 
 .bottom-bar button {
@@ -404,6 +429,11 @@ svg {
   }
 
   .playground {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .iframe {
     width: 100%;
   }
 

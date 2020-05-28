@@ -6,17 +6,13 @@ import FunctionButton from '../FunctionButton';
 import Icon from '../Icon';
 import ImageUpload from '../ImageUpload';
 
-const BottomBar = ({ toggleView, view }) => {
+const BottomBar = () => {
   const [modal, showModal, hideModal] = useModal();
 
   return (
     <>
       {modal && <ImageUpload hideModal={hideModal} />}
       <div className="bottom-bar">
-        <FunctionButton onClick={() => toggleView(!view)}>
-          <Icon name="toggle" />
-          <span>Toggle View</span>
-        </FunctionButton>
         <FunctionButton onClick={showModal}>
           <Icon name="import" />
           Import Image
