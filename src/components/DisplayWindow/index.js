@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Iframe from '../Iframe';
-import BottomBar from '../BottomBar';
 
 const DisplayWindow = ({
   html,
@@ -25,7 +24,6 @@ const DisplayWindow = ({
         mouseMoveHandler={mouseMoveHandler}
         mouseUpHandler={mouseUpHandler}
       />
-      <BottomBar view={view} toggleView={toggleView} />
     </div>
   );
 };

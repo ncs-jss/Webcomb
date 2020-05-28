@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import DefaultWindow from './components/DefaultWindow';
 import DisplayWindow from './components/DisplayWindow';
 import CodeEditor from './components/CodeEditor';
+import BottomBar from './components/BottomBar';
 import Modal from './components/Modal';
 
 import { downloadFile } from './utils/helpers.js';
@@ -145,18 +146,14 @@ const App = () => {
               js={js}
               reset={reset}
               saveToLocalStorage={saveToLocalStorage}
-              view={view}
-              toggleView={toggleView}
+              // view={view}
+              // toggleView={toggleView}
               mouseMoveHandler={mouseMoveHandler}
               mouseUpHandler={mouseUpHandler}
             />
           )}
 
-          <section
-            className="playground"
-            style={
-              view ? { width: '0', transition: 'all 0.45s ease-in-out' } : null
-            }>
+          <section className="playground">
             <div className="resizable" onMouseDown={mouseDownHandler}></div>
             <CodeEditor
               langName="HTML"
@@ -184,6 +181,8 @@ const App = () => {
             />
           </section>
         </div>
+
+        <BottomBar view={view} toggleView={toggleView} />
       </div>
     </>
   );
