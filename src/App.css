@@ -69,13 +69,14 @@ body {
 }
 
 .navbar {
+  height: 60px;
   background-color: #171a18;
   box-shadow: 0px 3px 6px #00000029;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 0 20px;
 }
 
 .navbar .btn {
@@ -93,6 +94,7 @@ body {
   }
 
   .navbar {
+    height: auto;
     padding: 5px;
     flex-wrap: wrap;
     justify-content: center;
@@ -138,7 +140,7 @@ svg {
 .main {
   display: flex;
   justify-content: space-between;
-  height: calc(100% - 60px);
+  height: calc(100% - 92px);
 }
 
 .playground {
@@ -148,6 +150,7 @@ svg {
   display: flex;
   flex-direction: column;
   position: relative;
+  flex-shrink: 0;
 }
 
 .resizable {
@@ -244,6 +247,7 @@ svg {
   background: #2c303a;
   padding: 5px;
   display: flex;
+  height: 32px;
 }
 
 .bottom-bar button {
