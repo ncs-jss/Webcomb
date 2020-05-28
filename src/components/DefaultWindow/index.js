@@ -3,7 +3,7 @@ import React from 'react';
 const DefaultWindow = () => {
   return (
     <div className="default-window">
-      <p>Start by writing some HTML code</p>
+      <h2>Start by writing some HTML code</h2>
     </div>
   );
 };

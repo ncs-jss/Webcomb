@@ -3,17 +3,17 @@
   src: url(./assets/fonts/ProximaNovaRegular.ttf);
 }
 
-html {
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 ::selection {
