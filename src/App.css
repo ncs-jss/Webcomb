@@ -139,9 +139,20 @@ svg {
 
 .playground {
   width: 576px;
+  min-width: 350px;
   display: flex;
   flex-direction: column;
-  transition: all 0.45s ease-in-out;
+  position: relative;
+}
+
+.resizable {
+  width: 8px;
+  position: absolute;
+  background: #3f4145;
+  height: 100%;
+  z-index: 4;
+  left: -8px;
+  cursor: ew-resize;
 }
 
 .code-editor {
@@ -219,7 +230,7 @@ svg {
 }
 
 .iframe {
-  width: 100%;
+  width: calc(100% - 8px);
   height: 100%;
   border: none;
 }

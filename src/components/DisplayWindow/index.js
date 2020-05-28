@@ -11,6 +11,8 @@ const DisplayWindow = ({
   saveToLocalStorage,
   view,
   toggleView,
+  mouseMoveHandler,
+  mouseUpHandler,
 }) => {
   return (
     <div className="display-window">
@@ -20,6 +22,8 @@ const DisplayWindow = ({
         js={js}
         reset={reset}
         saveToLocalStorage={saveToLocalStorage}
+        mouseMoveHandler={mouseMoveHandler}
+        mouseUpHandler={mouseUpHandler}
       />
       <BottomBar view={view} toggleView={toggleView} />
     </div>

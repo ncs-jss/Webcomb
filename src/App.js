@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import './App.css';
 
@@ -18,6 +18,7 @@ const App = () => {
   const [css, setcss] = useState('');
   const [js, setjs] = useState('');
   const [view, toggleView] = useState(false); // false for normal view, true for fullScreen
+  const [isResizable, setIsResizable] = useState(false);
   const [modalContent, setModalContent] = useState({});
   const [modal, showModal, hideModal] = useModal();
 
@@ -66,6 +67,34 @@ const App = () => {
     localStorage.clear();
     hideModal();
   };
+
+  const mouseDownHandler = useCallback(() => setIsResizable(true), []);
+
+  const mouseMoveHandler = useCallback(
+    (e) => {
+      if (isResizable) {
+        const el = document.querySelector('.playground');
+        el.style.width = window.innerWidth - e.pageX + 'px';
+      }
+    },
+    [isResizable],
+  );
+
+  const mouseUpHandler = useCallback(() => setIsResizable(false), []);
+
+  useEffect(() => {
+    document.addEventListener('mouseup', mouseUpHandler);
+    return () => {
+      document.removeEventListener('mouseup', mouseUpHandler);
+    };
+  }, [mouseUpHandler]);
+
+  useEffect(() => {
+    document.addEventListener('mousemove', mouseMoveHandler);
+    return () => {
+      document.removeEventListener('mousemove', mouseMoveHandler);
+    };
+  }, [mouseMoveHandler]);
 
   // logic to get data from local storage when component mounts
   useEffect(() => {
@@ -118,10 +147,17 @@ const App = () => {
               saveToLocalStorage={saveToLocalStorage}
               view={view}
               toggleView={toggleView}
+              mouseMoveHandler={mouseMoveHandler}
+              mouseUpHandler={mouseUpHandler}
             />
           )}
 
-          <section className="playground" style={view ? { width: '0' } : null}>
+          <section
+            className="playground"
+            style={
+              view ? { width: '0', transition: 'all 0.45s ease-in-out' } : null
+            }>
+            <div className="resizable" onMouseDown={mouseDownHandler}></div>
             <CodeEditor
               langName="HTML"
               value={html}
