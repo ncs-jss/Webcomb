@@ -391,6 +391,7 @@ svg {
   background: #1d1e22;
   border: none;
   position: relative;
+  word-break: break-word;
 }
 
 .image-url {
