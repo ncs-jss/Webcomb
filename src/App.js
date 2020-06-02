@@ -33,6 +33,9 @@ const App = () => {
       'Ctrl-S': () => saveToLocalStorage(),
       'Ctrl-R': () => showResetModal(),
       'Ctrl-D': () => downloadFile(),
+      'Cmd-S': () => saveToLocalStorage(),
+      'Cmd-R': () => showResetModal(),
+      'Cmd-D': () => downloadFile(),
     },
   };
 
