@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
 import Icon from '../Icon';
-import Modal from '../Modal';
 
 import { uploadImage } from '../../api';
 
-const ImageUpload = ({ hideModal }) => {
+const ImageUpload = () => {
   const [fileName, setFileName] = useState('No file chosen!');
   const [file, setFile] = useState('');
   const [imgUrl, setImgUrl] = useState(null);
@@ -41,7 +40,7 @@ const ImageUpload = ({ hideModal }) => {
     navigator.clipboard.writeText(imgUrl).then(() => setCopiedText(imgUrl));
 
   return (
-    <Modal title="Import Images" closeModal={hideModal}>
+    <>
       {!imgUrl && !uploadError ? (
         <>
           <label htmlFor="file-upload" className="custom-file-upload">
@@ -92,7 +91,7 @@ const ImageUpload = ({ hideModal }) => {
           <p className="error-message">{uploadError}</p>
         </div>
       )}
-    </Modal>
+    </>
   );
 };
 

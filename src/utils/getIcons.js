@@ -193,4 +193,29 @@ export const getIcons = () => [
     width: '20',
     height: '20',
   },
+  {
+    id: 9,
+    name: 'shortcut',
+    svg: (
+      <g
+        style={{ mixBlendMode: 'normal' }}
+        fill="none"
+        fontFamily="none"
+        fillRule="nonzero"
+        fontSize="none"
+        stroke="none"
+        strokeDasharray=""
+        strokeLinecap="butt"
+        strokeWidth="1"
+        textAnchor="none">
+        <path d="M0,172v-172h172v172z" fill="none" />
+        <g fill="#ffffff">
+          <path d="M100.33333,57.33333c-71.66667,0 -78.83333,86 -78.83333,86c0,0 14.33333,-35.83333 78.83333,-35.83333v28.66667l57.33333,-55.126l-57.33333,-52.374z" />
+        </g>
+      </g>
+    ),
+    viewBox: '0 0 172 172',
+    width: '20',
+    height: '20',
+  },
 ];

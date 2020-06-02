@@ -47,12 +47,14 @@ const App = () => {
 
   // show reset modal
   const showResetModal = () => {
-    setModalContent({
-      title: 'Reset Pen?',
-      desc: 'Clicking the Reset button will reset the Pen!',
-      reset: true,
-    });
-    showModal();
+    if (html !== '' || css !== '' || js !== '') {
+      setModalContent({
+        title: 'Reset Pen?',
+        desc: 'Clicking the Reset button will reset the Pen!',
+        reset: true,
+      });
+      showModal();
+    }
   };
 
   // logic to reset everyhting

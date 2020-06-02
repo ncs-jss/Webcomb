@@ -415,6 +415,24 @@ svg {
   cursor: pointer;
 }
 
+.shortcuts-list {
+  list-style-type: none;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.shortcuts-list > li {
+  margin: 12px 0;
+}
+
+.shortcuts-list > li > span {
+  background: #fff;
+  color: #000;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: 500;
+}
+
 @media only screen and (max-width: 650px) {
   body {
     font-size: 14px;
