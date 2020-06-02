@@ -22,21 +22,14 @@ const App = () => {
   const [modalContent, setModalContent] = useState({});
   const [modal, showModal, hideModal] = useModal();
 
-  // codemirror extra options
-  const codeMirrorOptions = {
-    theme: 'material',
-    lineNumbers: true,
-    scrollbarStyle: null,
-    lineWrapping: true,
-    tabSize: 2,
-    extraKeys: {
-      'Ctrl-S': () => saveToLocalStorage(),
-      'Ctrl-R': () => showResetModal(),
-      'Ctrl-D': () => downloadFile(),
-      'Cmd-S': () => saveToLocalStorage(),
-      'Cmd-R': () => showResetModal(),
-      'Cmd-D': () => downloadFile(),
-    },
+  // codemirror extrakeys
+  const extraKeys = {
+    'Ctrl-S': () => saveToLocalStorage(),
+    'Ctrl-R': () => showResetModal(),
+    'Ctrl-D': () => downloadFile(),
+    'Cmd-S': () => saveToLocalStorage(),
+    'Cmd-R': () => showResetModal(),
+    'Cmd-D': () => downloadFile(),
   };
 
   // logic to save file
@@ -163,7 +156,7 @@ const App = () => {
               mode="htmlmixed"
               lang={html}
               setFn={sethtml}
-              codeMirrorOptions={codeMirrorOptions}
+              extraKeys={extraKeys}
             />
             <CodeEditor
               langName="CSS"
@@ -171,7 +164,7 @@ const App = () => {
               mode="css"
               lang={css}
               setFn={setcss}
-              codeMirrorOptions={codeMirrorOptions}
+              extraKeys={extraKeys}
             />
             <CodeEditor
               langName="JavaScript"
@@ -179,7 +172,7 @@ const App = () => {
               mode="javascript"
               lang={js}
               setFn={setjs}
-              codeMirrorOptions={codeMirrorOptions}
+              extraKeys={extraKeys}
             />
           </section>
         </div>
