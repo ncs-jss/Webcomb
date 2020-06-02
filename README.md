@@ -16,6 +16,20 @@ Webcomb is a playground to practice frontend development(HTML, CSS, Javascript).
 * ImgBB API (For hosting images)
 * Netlify.com (For website hosting)
 
+### Snapshots:
+<table>
+ <tr>
+  <td>
+     <img src="https://i.ibb.co/q5s4jnb/Screenshot-from-2020-06-02-18-29-59.png" alt="1" border="0">
+  </td>
+ </tr>
+ <tr>
+  <td>
+     <img src="https://i.ibb.co/sj3Dpw2/Screenshot-from-2020-06-02-18-28-15.png" alt="2" border="0">
+  </td>
+ </tr>
+</table>
+
 ### Steps to run locally :
 
 1. Clone the repository
