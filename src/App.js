@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import 'App.css';
+import './App.css';
 
 import { useModal } from 'utils/useModal';
 
