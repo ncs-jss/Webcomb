@@ -1,5 +1,5 @@
 # Webcomb
-Webcomb is a playground to practice frontend development(HTML, CSS, Javascript). It is built using Reactjs and `react-codemirror2` library. 
+Webcomb is a playground to practice frontend development(HTML, CSS and JavaScript). It is built using Reactjs and `react-codemirror2` library. 
 <br /><br />
 <b>[Live Website](https://webcomb.netlify.app/)</b>
 
@@ -7,7 +7,7 @@ Webcomb is a playground to practice frontend development(HTML, CSS, Javascript).
 * Playground for HTML,CSS and JavaScript
 * Lets you download the website for local use
 * Import local images
-* Many Editor shortcuts like `CTRL-/` for comments
+* Many Editor shortcuts like `CTRL+/` for comments
 
 ### Technologies used:
 * ReactJS
@@ -40,7 +40,7 @@ Webcomb is a playground to practice frontend development(HTML, CSS, Javascript).
   
       `cd Webcomb`
       
-3. Add API credentials and API endpoint in `.env` file 
+3. Add API credentials and API endpoint in `.env` file, use `.env.example` for the reference
 
 4. Install all dependencies from npm
       
