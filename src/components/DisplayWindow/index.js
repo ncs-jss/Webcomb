@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Iframe from '../Iframe';
+import Iframe from 'components/Iframe';
 
 const DisplayWindow = ({
   html,

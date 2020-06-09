@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FunctionButton from '../FunctionButton';
-import Icon from '../Icon';
+import FunctionButton from 'components/FunctionButton';
+import Icon from 'components/Icon';
 
 const Navbar = ({ reset, save, html, download }) => {
   return (

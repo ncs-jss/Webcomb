@@ -2,16 +2,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import './App.css';
 
-import { useModal } from './utils/useModal';
+import { useModal } from 'utils/useModal';
 
-import Navbar from './components/Navbar';
-import DefaultWindow from './components/DefaultWindow';
-import DisplayWindow from './components/DisplayWindow';
-import CodeEditor from './components/CodeEditor';
-import BottomBar from './components/BottomBar';
-import Modal from './components/Modal';
+import Navbar from 'components/Navbar';
+import DefaultWindow from 'components/DefaultWindow';
+import DisplayWindow from 'components/DisplayWindow';
+import CodeEditor from 'components/CodeEditor';
+import BottomBar from 'components/BottomBar';
+import Modal from 'components/Modal';
 
-import { downloadFile } from './utils/helpers.js';
+import { downloadFile } from 'utils/helpers.js';
 
 const App = () => {
   // states

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Icon from '../Icon';
+import { uploadImage } from 'api';
 
-import { uploadImage } from '../../api';
+import Icon from 'components/Icon';
 
 const ImageUpload = () => {
   const [fileName, setFileName] = useState('No file chosen!');

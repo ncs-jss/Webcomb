@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-import { runCode } from '../../utils/helpers';
+import { runCode } from 'utils/helpers';
 
 const Iframe = ({ html, css, js, mouseMoveHandler, mouseUpHandler }) => {
   const iframeRef = useRef(null);

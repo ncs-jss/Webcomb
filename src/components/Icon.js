@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getIcons } from '../utils/getIcons';
+import { getIcons } from 'utils/getIcons';
 
 const Icon = ({ name, width, height, style, title, ...rest }) => {
   let current = getIcons().find((icon) => icon.name === name);

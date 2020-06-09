@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import { useModal } from '../../utils/useModal';
+import { useModal } from 'utils/useModal';
 
-import FunctionButton from '../FunctionButton';
-import Icon from '../Icon';
-import Modal from '../Modal';
-import ImageUpload from '../ImageUpload';
-import Shortcuts from '../Shortcuts';
+import FunctionButton from 'components/FunctionButton';
+import Icon from 'components/Icon';
+import Modal from 'components/Modal';
+import ImageUpload from 'components/ImageUpload';
+import Shortcuts from 'components/Shortcuts';
 
 const BottomBar = () => {
   const [modal, showModal, hideModal] = useModal();

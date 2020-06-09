@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import ReactDOM from 'react-dom';
 
 const Modal = ({ title, closeModal, children }) => {
