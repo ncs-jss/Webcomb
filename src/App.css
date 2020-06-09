@@ -378,6 +378,11 @@ svg {
   }
 }
 
+.paste-img-msg {
+  font-size: 1.3rem;
+  margin: 10px 0 14px;
+}
+
 .image-details h2,
 .upload-error h2 {
   font-weight: normal;
@@ -394,7 +399,8 @@ svg {
   word-break: break-word;
 }
 
-.image-url {
+.image-url,
+.img-tag {
   color: #2196f3;
 }
 

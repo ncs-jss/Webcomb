@@ -1,7 +1,3 @@
-import React from 'react';
-
-const DefaultWindow = () => {
-  return <div className="default-window"></div>;
-};
+import DefaultWindow from './DefaultWindow';
 
 export default DefaultWindow;

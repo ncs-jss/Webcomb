@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import './App.css';
+import 'App.css';
 
 import { useModal } from 'utils/useModal';
 
@@ -66,6 +66,7 @@ const App = () => {
     hideModal();
   };
 
+  // mousehandlers
   const mouseDownHandler = useCallback(() => setIsResizable(true), []);
 
   const mouseMoveHandler = useCallback(
@@ -125,6 +126,7 @@ const App = () => {
           )}
         </Modal>
       )}
+
       <div className="App">
         <Navbar
           reset={showResetModal}
