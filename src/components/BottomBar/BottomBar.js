@@ -31,14 +31,16 @@ const BottomBar = () => {
 
   useEffect(() => {
     const pasteImageHandler = (e) => {
-      const items = (e.clipboardData || e.originale.clipboardData).items;
-      const item = items[0];
+      const items = (e.clipboardData || e.originalEvent.clipboardData).items;
 
-      if (item.kind === 'file') {
-        setClipboardFile(item.getAsFile());
-        showImageModal();
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') === 0) {
+          setClipboardFile(items[i].getAsFile());
+          showImageModal();
+        }
       }
     };
+
     window.addEventListener('paste', pasteImageHandler, false);
 
     return () => {
