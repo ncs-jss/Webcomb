@@ -7,6 +7,7 @@ Webcomb is a playground to practice frontend development(HTML, CSS and JavaScrip
 * Playground for HTML,CSS and JavaScript
 * Lets you download the website for local use
 * Import local images
+* Directly upload images from clipboard 
 * Many Editor shortcuts like `CTRL+/` for comments
 
 ### Technologies used:
