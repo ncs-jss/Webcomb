@@ -277,7 +277,8 @@ svg {
 }
 
 .modal-main {
-  width: 400px;
+  min-width: 400px;
+  max-width: 600px;
   background: #2c303a;
   border-radius: 4px;
   color: #fff;
@@ -421,22 +422,30 @@ svg {
   cursor: pointer;
 }
 
-.shortcuts-list {
-  list-style-type: none;
-  font-size: 1rem;
+.shortcuts {
   line-height: 1.5;
+  display: flex;
 }
 
-.shortcuts-list > li {
+.shortcuts-type {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.shortcuts p {
   margin: 12px 0;
 }
 
-.shortcuts-list > li > span {
+.shortcuts span {
   background: #fff;
   color: #000;
   border-radius: 4px;
-  padding: 4px 8px;
   font-weight: 500;
+  display: inline-flex;
+  width: 108px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 650px) {
@@ -468,6 +477,15 @@ svg {
 
   .bottom-bar {
     display: none;
+  }
+
+  .modal-main {
+    min-width: 300px;
+    max-width: 450px;
+  }
+
+  .shortcuts {
+    display: block;
   }
 }
 

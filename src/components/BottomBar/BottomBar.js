@@ -13,10 +13,10 @@ const BottomBar = () => {
   const [modalTitle, setModalTitle] = useState(null);
   const [clipboardFile, setClipboardFile] = useState(null);
 
-  const showShortcuts = () => {
+  const showShortcuts = useCallback(() => {
     setModalTitle('Shortcuts');
     showModal();
-  };
+  }, [showModal]);
 
   const showImageModal = useCallback(() => {
     setModalTitle('Import Images');
@@ -29,24 +29,59 @@ const BottomBar = () => {
     setClipboardFile(null);
   };
 
-  useEffect(() => {
-    const pasteImageHandler = (e) => {
-      const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+  const keyDownHandler = useCallback(
+    (e) => {
+      const cmdKey = window.navigator.platform.match('Mac')
+        ? e.metaKey
+        : e.ctrlKey;
+      if (cmdKey) {
+        switch (e.keyCode) {
+          case 73:
+            e.preventDefault();
+            showImageModal();
+            break;
+          case 75:
+            e.preventDefault();
+            showShortcuts();
+            break;
+          default:
+            return;
+        }
+      }
+    },
+    [showImageModal, showShortcuts],
+  );
 
+  const pasteImageHandler = useCallback(
+    (e) => {
+      const items = (e.clipboardData || e.originalEvent.clipboardData).items;
       for (let i = 0; i < items.length; i++) {
         if (items[i].type.indexOf('image') === 0) {
           setClipboardFile(items[i].getAsFile());
           showImageModal();
         }
       }
-    };
+    },
+    [showImageModal],
+  );
 
+  // Listener for paste from clipboard
+  useEffect(() => {
     window.addEventListener('paste', pasteImageHandler, false);
 
     return () => {
       window.removeEventListener('paste', pasteImageHandler, false);
     };
-  }, [showImageModal]);
+  }, [pasteImageHandler]);
+
+  // Listener for navbar events' shortcuts
+  useEffect(() => {
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [keyDownHandler]);
 
   return (
     <>

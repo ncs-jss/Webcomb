@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 import { useModal } from 'utils/useModal';
+import { downloadFile } from 'utils/helpers.js';
 
 import Navbar from 'components/Navbar';
 import DefaultWindow from 'components/DefaultWindow';
@@ -10,8 +11,6 @@ import DisplayWindow from 'components/DisplayWindow';
 import CodeEditor from 'components/CodeEditor';
 import BottomBar from 'components/BottomBar';
 import Modal from 'components/Modal';
-
-import { downloadFile } from 'utils/helpers.js';
 
 const App = () => {
   // states
@@ -22,18 +21,8 @@ const App = () => {
   const [modalContent, setModalContent] = useState({});
   const [modal, showModal, hideModal] = useModal();
 
-  // codemirror extrakeys
-  const extraKeys = {
-    'Ctrl-S': () => saveToLocalStorage(),
-    'Ctrl-R': () => showResetModal(),
-    'Ctrl-D': () => downloadFile(),
-    'Cmd-S': () => saveToLocalStorage(),
-    'Cmd-R': () => showResetModal(),
-    'Cmd-D': () => downloadFile(),
-  };
-
   // logic to save file
-  const saveToLocalStorage = () => {
+  const saveToLocalStorage = useCallback(() => {
     if (html !== '' || css !== '' || js !== '') {
       const langObj = { html, css, js };
       localStorage.setItem('langObj', JSON.stringify(langObj));
@@ -43,10 +32,10 @@ const App = () => {
       });
       showModal();
     }
-  };
+  }, [css, html, js, showModal]);
 
   // show reset modal
-  const showResetModal = () => {
+  const showResetModal = useCallback(() => {
     if (html !== '' || css !== '' || js !== '') {
       setModalContent({
         title: 'Reset Pen?',
@@ -55,7 +44,7 @@ const App = () => {
       });
       showModal();
     }
-  };
+  }, [css, html, js, showModal]);
 
   // logic to reset everyhting
   const reset = () => {
@@ -160,7 +149,6 @@ const App = () => {
               mode="htmlmixed"
               lang={html}
               setFn={sethtml}
-              extraKeys={extraKeys}
             />
             <CodeEditor
               langName="CSS"
@@ -168,7 +156,6 @@ const App = () => {
               mode="css"
               lang={css}
               setFn={setcss}
-              extraKeys={extraKeys}
             />
             <CodeEditor
               langName="JavaScript"
@@ -176,7 +163,6 @@ const App = () => {
               mode="javascript"
               lang={js}
               setFn={setjs}
-              extraKeys={extraKeys}
             />
           </section>
         </div>

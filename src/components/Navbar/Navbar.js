@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import FunctionButton from 'components/FunctionButton';
 import Icon from 'components/Icon';
 
 const Navbar = ({ reset, save, html, download }) => {
+  const keyDownHandler = useCallback(
+    (e) => {
+      const cmdKey = window.navigator.platform.match('Mac')
+        ? e.metaKey
+        : e.ctrlKey;
+      if (cmdKey) {
+        switch (e.keyCode) {
+          case 68:
+            e.preventDefault();
+            download();
+            break;
+          case 82:
+            e.preventDefault();
+            reset();
+            break;
+          case 83:
+            e.preventDefault();
+            save();
+            break;
+          default:
+            return;
+        }
+      }
+    },
+    [download, reset, save],
+  );
+
+  // Listener for navbar events' shortcuts
+  useEffect(() => {
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [keyDownHandler]);
+
   return (
     <div className="navbar">
       <div className="logo">

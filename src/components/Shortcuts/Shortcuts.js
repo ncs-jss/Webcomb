@@ -3,27 +3,36 @@ import React from 'react';
 const Shortcuts = () => {
   return (
     <div className="shortcuts">
-      <ul className="shortcuts-list">
-        <li>
+      <div>
+        <h3 className="shortcuts-type">Pen Shortcuts</h3>
+        <p>
           <span>Ctrl/Cmd + S</span> - Save Pen
-        </li>
-        <li>
+        </p>
+        <p>
           <span>Ctrl/Cmd + R</span> - Open Reset Modal
-        </li>
-        <li>
+        </p>
+        <p>
           <span>Ctrl/Cmd + D</span> - Download HTML file
-        </li>
-        <li>
+        </p>
+        <p>
+          <span>Ctrl/Cmd + V</span> - Paste Image from clipboard
+        </p>
+        <p>
+          <span>Ctrl/Cmd + I</span> - Import Image Modal
+        </p>
+        <p>
+          <span>Ctrl/Cmd + K</span> - Show Shortcuts Modal
+        </p>
+      </div>
+      <div>
+        <h3 className="shortcuts-type">Editor Shortcuts</h3>
+        <p>
           <span>Ctrl/Cmd + /</span> - Line comment
-        </li>
-        <li>
+        </p>
+        <p>
           <span>Ctrl/Cmd + /</span> - Block comment
-        </li>
-      </ul>
-      <p>
-        Note: All these shortcuts can only be triggered when the cursor is in
-        the editor.
-      </p>
+        </p>
+      </div>
     </div>
   );
 };

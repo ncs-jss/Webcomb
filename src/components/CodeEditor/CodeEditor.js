@@ -14,7 +14,7 @@ import 'codemirror/theme/material.css';
 
 let numOfMinimisedScreens = 0;
 
-const CodeEditor = ({ langName, value, lang, mode, setFn, extraKeys }) => {
+const CodeEditor = ({ langName, value, lang, mode, setFn }) => {
   const [minimisedEditor, setminimisedEditor] = useState(false);
 
   const resizeEditor = () => {
@@ -54,7 +54,6 @@ const CodeEditor = ({ langName, value, lang, mode, setFn, extraKeys }) => {
           autoCloseBrackets: true,
           autofocus: mode === 'htmlmixed' ? true : false,
           extraKeys: {
-            ...extraKeys,
             'Ctrl-/': 'toggleComment',
             'Cmd-/': 'toggleComment',
           },
