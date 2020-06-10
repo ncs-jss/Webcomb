@@ -9,9 +9,10 @@ const Navbar = ({ reset, save, html, download }) => {
       const cmdKey = window.navigator.platform.match('Mac')
         ? e.metaKey
         : e.ctrlKey;
-      if (cmdKey) {
+      const modalsLength = document.querySelectorAll('.modal').length;
+      if (cmdKey && !modalsLength && !e.shiftKey) {
         switch (e.keyCode) {
-          case 68:
+          case 72:
             e.preventDefault();
             download();
             break;

@@ -12,7 +12,7 @@ const Shortcuts = () => {
           <span>Ctrl/Cmd + R</span> - Open Reset Modal
         </p>
         <p>
-          <span>Ctrl/Cmd + D</span> - Download HTML file
+          <span>Ctrl/Cmd + H</span> - Download HTML file
         </p>
         <p>
           <span>Ctrl/Cmd + V</span> - Paste Image from clipboard

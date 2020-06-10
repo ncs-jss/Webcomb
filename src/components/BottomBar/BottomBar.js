@@ -34,7 +34,8 @@ const BottomBar = () => {
       const cmdKey = window.navigator.platform.match('Mac')
         ? e.metaKey
         : e.ctrlKey;
-      if (cmdKey) {
+      const modalsLength = document.querySelectorAll('.modal').length;
+      if (cmdKey && !modalsLength && !e.shiftKey) {
         switch (e.keyCode) {
           case 73:
             e.preventDefault();
@@ -97,7 +98,7 @@ const BottomBar = () => {
       <div className="bottom-bar">
         <FunctionButton onClick={showShortcuts}>
           <Icon name="shortcut" />
-          Shortcut
+          Shortcuts
         </FunctionButton>
         <FunctionButton onClick={showImageModal}>
           <Icon name="import" />
