@@ -282,6 +282,18 @@ svg {
   background: #2c303a;
   border-radius: 4px;
   color: #fff;
+  animation: animateOpacity 0.25s;
+}
+
+@keyframes animateOpacity {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .modal-heading {
